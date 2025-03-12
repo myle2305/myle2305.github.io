@@ -1,0 +1,15 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --col-01: black;
+  --col-02: rgb(225, 117, 117);
+  --col-03: rgb(59, 157, 248);
+  --col-04: rgb(255, 255, 255);
+  --border: single 1rem var(--col-02);
+}
