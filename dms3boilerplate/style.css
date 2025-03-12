@@ -8,12 +8,20 @@
 
 :root {
   --col-01: black;
-  --col-02: rgb(225, 117, 117);
-  --col-03: rgb(59, 157, 248);
+  --col-02: rgb(61, 234, 61));
+  --col-03: black;
   --col-04: rgb(255, 255, 255);
   --border: single 1rem var(--col-02);
 }
 
 body{
     font-family: 'Work Sans', sans-serif;
+    background-color: black;
+    color: rgb(231, 255, 98);
+    line-height: 1.5;
 }
+header{
+    
+}
+
+
