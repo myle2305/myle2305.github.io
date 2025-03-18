@@ -1,0 +1,60 @@
+/* h1 {
+  color: blue;
+}
+h2 {
+  color: yellow;
+}
+h3 {
+  color: green;
+}
+p {
+  /* color: brown; */
+/* font-weight: bold; */
+* {
+  color: hotpink;
+}
+body {
+  background-color: beige color rgb(112, 111, 111);
+  font-size: 1.1rem;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+section {
+  text-align: center;
+  border: 1px solid green;
+}
+.green-border {
+  border: 3px dashed green;
+}
+h1 {
+  color: limegreen;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+li {
+  color: purple;
+}
+/* h2 {
+  color: red;
+} */
+h2,
+h3 {
+  color: green;
+  font-size: 1.4rem;
+}
+
+/* .blue-color {
+  color: blue; */
+#second-para {
+  color: chocolate;
+}
+/* curly braces { }*/
+/* square brackets [ ] */
+/* parentheses <> */
+/* round brackets ( ) */
+/* colon */
+/* semicolon */
+/* syntax - rules of writing  */
+/* comment shortcut cmd /  */
