@@ -15,7 +15,7 @@ h1 {
   font-variation-settings: "width" 100;
   width: 60%;
   line-height: 96px;
-  font-size: 100px;
+  font-size: 6rem;
   color: rgb(163, 163, 160);
   letter-spacing: -1px;
   text-align: right;
@@ -56,7 +56,7 @@ h3 {
   font-family: "Comfortaa", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 10px;
+  font-size: 0.8rem;
   margin-right: 100px;
   display: flex;
   flex-direction: column;
@@ -110,12 +110,20 @@ h3 {
 .placeholder {
   height: 50vh;
 }
+.link-ref {
+  color: rgb(124, 45, 0);
+  text-decoration: none;
+  font-weight: 700;
+}
+.link-ref:hover {
+  text-decoration: underline;
+}
 .question-content {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   color: rgb(163, 163, 160);
-  font-size: 40px;
+  font-size: 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -143,7 +151,7 @@ h3 {
   line-height: 58px;
   letter-spacing: normal;
   color: rgb(0, 0, 0);
-  font-size: 50px;
+  font-size: 3rem;
   font-style: bold;
   text-align: left;
 }
@@ -183,12 +191,12 @@ h3 {
   font-optical-sizing: auto;
   font-weight: 200;
   color: rgb(163, 163, 160);
-  font-size: 14px;
+  font-size: 1rem;
   filter: darken;
 }
 .answer-container-element {
   width: 90%;
-  margin: 5px;
+  margin: 8px;
 }
 .answer-container-column-1 {
   background-color: transparent;
