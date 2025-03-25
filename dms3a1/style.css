@@ -87,6 +87,7 @@ h3 {
   background-color: rgb(250, 200, 0);
   border-color: transparent;
   color: black;
+  transition: 0.5s;
 }
 .list-of-questions-container {
   width: 100%;
