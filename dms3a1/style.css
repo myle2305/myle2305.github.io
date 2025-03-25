@@ -110,14 +110,7 @@ h3 {
 .placeholder {
   height: 50vh;
 }
-.link-ref {
-  color: rgb(124, 45, 0);
-  text-decoration: none;
-  font-weight: 700;
-}
-.link-ref:hover {
-  text-decoration: underline;
-}
+
 .question-content {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
@@ -217,7 +210,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
 }
-.the-power-toy {
+.the-powder-toy {
   grid-column: 3 / span 1;
   display: flex;
   flex-direction: column;
@@ -226,4 +219,19 @@ h3 {
 }
 .answer-text-half-width {
   max-width: 60%;
+}
+.link-ref {
+  color: rgb(124, 45, 0);
+  text-decoration: none;
+  font-weight: 700;
+}
+.link-to-image {
+  color: rgb(163, 163, 160);
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-ref:hover,
+.link-to-image:hover {
+  text-decoration: underline;
+  color: aqua;
 }
