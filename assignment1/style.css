@@ -704,6 +704,7 @@ body {
   position: relative;
 }
 button {
+  border-color: black;
   position: absolute;
   border-style: solid;
   border-radius: 50px;
