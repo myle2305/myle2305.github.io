@@ -856,7 +856,7 @@ button:hover {
   color: #68faff;
   transition: 0.5s;
 }
-.button:active {
+button:active {
   background-color: black;
   color: #ff006e;
 }
