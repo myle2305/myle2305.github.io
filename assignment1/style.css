@@ -856,6 +856,10 @@ button:hover {
   color: #68faff;
   transition: 0.5s;
 }
+.button:active {
+  background-color: black;
+  color: #ff006e;
+}
 
 .video {
   background-color: #8338ec;
