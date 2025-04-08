@@ -1,3 +1,36 @@
+let a = 10;
+let b = 20;
+
+function add(a, b) {
+  let sum = a + b;
+  // console.log(sum);
+}
+function whatIsMyGrade(marks) {
+  if (marks < 40) {
+    // console.log("sorry you failed");
+    return "failed";
+  } else if (marks > 80) {
+    //console.log("you got HD");
+    return "HD";
+  } else return "pass";
+}
+let myMarks = 54;
+let myGrade = whatIsMyGrade(myMarks);
+console.log(myGrade);
+
+let total = add(10, 20);
+console.log(total);
+total = add(a, b);
+console.log(total);
+// add(10, 20);
+// add(23,05);
+// let c = a + b;
+// console.log(c);
+// a = 23;
+// b = 17;
+// c = a + b;
+// console.log(c);
+
 let myName = "My";
 let myID = "s12345";
 let myNewName = "MELBOURNE";
