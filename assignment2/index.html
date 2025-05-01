@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A2</title>
-    <!-- add the font family of your choice -->
+    <!-- font family -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- ----- -->
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -26,7 +27,7 @@
         <img src="icons8-male-user-48.png" alt="profile" />
       </div>
     </div>
-    <!-- page content -->
+    <!-- Page content -->
     <div class="page-content">
       <!-- Side Bar Section -->
       <div class="container-1">
@@ -45,8 +46,8 @@
           </button>
         </div>
       </div>
-      <!-- main section -->
-      <div class="container-2">
+      <!-- main section: album name, album cover, artist name, playlist, media player -->
+      <main class="container-2">
         <div class="title-section">
           <h2>Ephemeral Echoes</h2>
           <p>By Genevieve Moreau | Album | 2025 | 3 tracks, 30 mins</p>
@@ -108,9 +109,11 @@
             </table>
           </div>
         </div>
+        <!-- Media Player Sectiom -->
         <div class="player-section">
           <div class="track-info">
             <div class="track-details">
+              <audio src="p-hase_Hes.mp3" id="audio"></audio>
               <p class="track-name-player" id="track-name-player">Track 1</p>
               <p class="artist-name" id="artist-name">Genevieve Moreau</p>
             </div>
@@ -118,12 +121,14 @@
         </div>
         <div class="player-controls">
           <img
+            onclick="skipBack()"
             src="skip-back-icon.png"
             alt="Skip Back"
             class="control-button"
             id="prev-track"
           />
           <img
+            onclick="playOrPause()"
             src="play-button.png"
             alt="Play"
             class="control-button"
@@ -136,6 +141,7 @@
             id="next-track"
           />
         </div>
+        <!-- Progress Bar section -->
         <div class="progress-bar-container">
           <input
             class="progress-bar"
@@ -150,6 +156,7 @@
             <span id="duration">3:45</span>
           </div>
         </div>
+        <!-- Volume Controls -->
         <div class="volume-controls">
           <img
             src="volume-high-icon.png"
@@ -157,6 +164,7 @@
             class="control-button"
             id="volume-icon"
           />
+          <!-- Volume Slider -->
           <div class="volume-slider">
             <input
               type="range"
@@ -167,9 +175,8 @@
             />
           </div>
         </div>
-      </div>
+      </main>
     </div>
-    <!-- Media Player Section -->
     <!-- Footer Section -->
     <!-- <footer>
       <p>&copy; 2024 Media Player Website. All rights reserved.</p>
