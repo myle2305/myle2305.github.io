@@ -65,7 +65,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr onclick="changeSong(0)">
                   <td class="track-number">1</td>
                   <td class="track-name">Track 1</td>
                   <td class="track-time">3:45</td>
@@ -75,7 +75,7 @@
                     <img src="more-icon.png" alt="More" class="more-icon" />
                   </td>
                 </tr>
-                <tr>
+                <tr onclick="changeSong(1)">
                   <td class="track-number">2</td>
                   <td class="track-name">Track 2</td>
                   <td class="track-time">4:20</td>
@@ -85,7 +85,7 @@
                     <img src="more-icon.png" alt="More" class="more-icon" />
                   </td>
                 </tr>
-                <tr>
+                <tr onclick="changeSong(2)">
                   <td class="track-number">3</td>
                   <td class="track-name">Track 3</td>
                   <td class="track-time">5:10</td>
@@ -95,7 +95,7 @@
                     <img src="more-icon.png" alt="More" class="more-icon" />
                   </td>
                 </tr>
-                <tr>
+                <tr onclick="changeSong(3)">
                   <td class="track-number">4</td>
                   <td class="track-name">Track 4</td>
                   <td class="track-time">6:10</td>
@@ -135,6 +135,7 @@
             id="play-pause"
           />
           <img
+            onclick="skipForward()"
             src="skip-forward-icon.png"
             alt="Skip Forward"
             class="control-button"
@@ -159,6 +160,7 @@
         <!-- Volume Controls -->
         <div class="volume-controls">
           <img
+            onclick="muteUnmute()"
             src="volume-high-icon.png"
             alt="Volume"
             class="control-button"
@@ -169,9 +171,10 @@
             <input
               type="range"
               min="0"
-              max="100"
-              value="100"
-              id="volume-slider"
+              max="1"
+              value="1"
+              step="0.01"
+              id="volume-range"
             />
           </div>
         </div>

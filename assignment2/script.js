@@ -8,14 +8,141 @@ const trackList = [
   { id: 4, src: "p-hase_Water-Feature.mp3" },
 ];
 
+const trackNames = ["Track 1", "Track 2", "Track 3", "Track 4"];
+
+const fileNames = [
+  "p-hase_Hes.mp3",
+  "p-hase_Dry-Down-feat-Ben-Snaath.mp3",
+  "p-hase_Leapt.mp3",
+  "p-hase_Water-Feature.mp3",
+];
+
 function playOrPause() {
   const audio = document.getElementById("audio");
   const icon = document.getElementById("play-pause");
   if (audio.paused) {
     audio.play();
-    icon.src = "play-button.png";
+    icon.src = "pause-button.png";
   } else {
     audio.pause();
-    icon.src = "pause-button.png";
+    icon.src = "play-button.png";
   }
+}
+
+function skipBack() {
+  const trackName = document.getElementById("track-name-player").textContent;
+  let index = 0;
+  for (let i = 0; i < trackNames.length; i = i + 1) {
+    if (trackNames[i] == trackName) {
+      index = i;
+    }
+  }
+  if (index == 0) {
+    return;
+  }
+  index = index - 1;
+  const audio = document.getElementById("audio");
+  const icon = document.getElementById("play-pause");
+  audio.src = fileNames[index];
+  audio.load();
+  audio.play();
+  icon.src = "pause-button.png";
+  document.getElementById("track-name-player").textContent = trackNames[index];
+}
+
+function skipForward() {
+  const trackName = document.getElementById("track-name-player").textContent;
+  let index = 0;
+  for (let i = 0; i < trackNames.length; i = i + 1) {
+    if (trackNames[i] == trackName) {
+      index = i;
+    }
+  }
+  if (index == 3) {
+    return;
+  }
+  index = index + 1;
+  const audio = document.getElementById("audio");
+  const icon = document.getElementById("play-pause");
+  audio.src = fileNames[index];
+  audio.load();
+  audio.play();
+  icon.src = "pause-button.png";
+  document.getElementById("track-name-player").textContent = trackNames[index];
+}
+
+function changeSong(index) {
+  const audio = document.getElementById("audio");
+  const icon = document.getElementById("play-pause");
+  audio.src = fileNames[index];
+  audio.load();
+  audio.play();
+  icon.src = "pause-button.png";
+  document.getElementById("track-name-player").textContent = trackNames[index];
+}
+
+function muteUnmute() {
+  const volumeControl = document.getElementById("volume-range");
+  const icon = document.getElementById("volume-icon");
+  const audio = document.getElementById("audio");
+  if (volumeControl.value == 0) {
+    volumeControl.value = 1;
+    audio.volume = 1;
+    icon.src = "volume-high-icon.png";
+  } else {
+    volumeControl.value = 0;
+    audio.volume = 0;
+    icon.src = "mute-icon.png";
+  }
+}
+
+const volumeControl = document.getElementById("volume-range");
+const audio = document.getElementById("audio");
+const icon = document.getElementById("volume-icon");
+const audioProgress = document.getElementById("audio-progress");
+volumeControl.addEventListener("input", function () {
+  audio.volume = this.value;
+  if (volumeControl.value == 0) {
+    icon.src = "mute-icon.png";
+  } else {
+    icon.src = "volume-high-icon.png";
+  }
+});
+
+audio.addEventListener("timeupdate", () => {
+  audioProgress.max = audio.duration;
+  audioProgress.value = audio.currentTime;
+  updateCurrentTime(Math.floor(audio.currentTime));
+});
+audio.addEventListener("loadedmetadata", () => {
+  updateDuration(Math.floor(audio.duration));
+});
+audioProgress.addEventListener("input", () => {
+  audio.currentTime = audioProgress.value;
+  updateCurrentTime(Math.floor(audio.currentTime));
+});
+function updateDuration(durationInSecond) {
+  const duration = document.getElementById("duration");
+  console.log(durationInSecond);
+  let minute = 0;
+  while (durationInSecond >= 60) {
+    durationInSecond = durationInSecond - 60;
+    minute = minute + 1;
+  }
+  if (durationInSecond < 10) {
+    durationInSecond = "0" + durationInSecond;
+  }
+  duration.textContent = minute + ":" + durationInSecond;
+}
+function updateCurrentTime(currentTimeInSecond) {
+  const currentTime = document.getElementById("current-time");
+  let minute = 0;
+  while (currentTimeInSecond >= 60) {
+    currentTimeInSecond = currentTimeInSecond - 60;
+    minute = minute + 1;
+  }
+  if (currentTimeInSecond < 10) {
+    currentTimeInSecond = "0" + currentTimeInSecond;
+  }
+  currentTime.textContent = minute + ":" + currentTimeInSecond;
 }
