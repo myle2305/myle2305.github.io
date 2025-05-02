@@ -362,8 +362,8 @@ h1 {
 
 .volume-slider input {
   -webkit-appearance: none;
-  width: 100px;
-  height: 3px;
+  width: 80px;
+  height: 2px;
   border-radius: 5px;
   background: var(--serenade);
   outline: none;
