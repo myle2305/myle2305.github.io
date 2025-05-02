@@ -159,6 +159,7 @@ h1 {
 .title-section {
   margin-bottom: 40px;
   align-items: flex-start;
+  flex-grow: 2;
 }
 
 .title-section h2 {
@@ -177,6 +178,7 @@ h1 {
 .cover-track-container {
   display: flex;
   flex-direction: row;
+  flex-grow: 2;
 }
 
 .album-cover {
@@ -282,8 +284,8 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding-bottom: 20px;
-  padding-top: 0px;
+  padding-bottom: 10px;
+  flex-grow: 1;
 }
 
 .control-button {
@@ -304,6 +306,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 80px;
+  flex-grow: 0.5;
 }
 
 .progress-bar {
@@ -342,6 +346,7 @@ h1 {
   align-items: center;
   gap: 15px;
   padding-left: 30px;
+  flex-grow: 0.5;
 }
 
 .volume-slider {
