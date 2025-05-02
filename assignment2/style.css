@@ -157,9 +157,9 @@ h1 {
 }
 
 .title-section {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   align-items: flex-start;
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 .title-section h2 {
@@ -256,10 +256,12 @@ h1 {
   gap: 20px;
   justify-content: flex-end;
 }
+
 .track-info {
   display: flex;
   align-items: center;
   padding-left: 30px;
+  flex-grow: 0.5;
 }
 
 .track-details {
@@ -268,15 +270,18 @@ h1 {
 }
 
 .track-name-player {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--serenade);
+  height: 6px;
 }
 
 .artist-name {
   font-size: 0.8rem;
   color: #b3b3b3;
   margin-top: 0;
+  margin-block-start: 0;
+  height: 5px;
 }
 
 /* Player Control styling */
