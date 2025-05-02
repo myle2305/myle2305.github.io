@@ -24,6 +24,7 @@ function playOrPause() {
   const icon = document.getElementById("play-pause");
   if (audio.paused) {
     audio.play();
+    audio.currentTime = audioProgress.value;
     icon.src = "pause-button.png";
   } else {
     audio.pause();
