@@ -12,12 +12,13 @@
       rel="stylesheet"
     />
     <!-- ----- -->
-    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
+
   <body>
     <!-- Navigation Section -->
+    <!-- This section is used to simulate the website's navigation bar. These icons are inactive. -->
     <div class="navigation-bar">
       <div class="hamburger-menu">
         <img src="icons8-menu-50.png" alt="hamburger-menu" />
@@ -27,7 +28,7 @@
         <img src="icons8-male-user-48.png" alt="profile" />
       </div>
     </div>
-    <!-- Page content -->
+    <!-- Page content: include side bar and main section -->
     <div class="page-content">
       <!-- Side Bar Section -->
       <div class="container-1">
@@ -35,22 +36,18 @@
           <h1>Library</h1>
           <div class="playlist-title">Playlist</div>
           <div class="my-playlist-container">
-            <img class="icon-img" src="track1pic.jpg" alt="img icon" /><span
-              class="place-button"
-            ></span>
-            My Playlist
+            <h4>My Playlist</h4>
+            <div id="playlist-song">
+              <p>Track 1</p>
+            </div>
           </div>
-          <button class="add-playlist">
-            <img src="plus.png" alt="plus" />
-            <placeholder class="place-button" />New Playlist
-          </button>
         </div>
       </div>
-      <!-- main section: album name, album cover, artist name, playlist, media player -->
+      <!-- Main Section -->
       <main class="container-2">
         <div class="title-section">
           <h2>Ephemeral Echoes</h2>
-          <p>By Genevieve Moreau | Album | 2025 | 3 tracks, 30 mins</p>
+          <p>By Genevieve Moreau | Album | 2025 | 4 tracks</p>
         </div>
         <div class="cover-track-container">
           <img class="album-cover" src="track1Cover.jpg" alt="cover" />
@@ -65,51 +62,95 @@
                 </tr>
               </thead>
               <tbody>
-                <tr onclick="changeSong(0)">
+                <tr>
                   <td class="track-number">1</td>
-                  <td class="track-name">Track 1</td>
+                  <td onclick="changeSong(0)" class="track-name">Track 1</td>
                   <td class="track-time">3:45</td>
                   <td class="track-actions">
-                    <img src="plus.png" alt="Plus" class="plus-icon" />
-                    <img src="heart-icon.png" alt="Like" class="heart-icon" />
-                    <img src="more-icon.png" alt="More" class="more-icon" />
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(0)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(0)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
                   </td>
                 </tr>
-                <tr onclick="changeSong(1)">
+                <tr>
                   <td class="track-number">2</td>
-                  <td class="track-name">Track 2</td>
+                  <td onclick="changeSong(1)" class="track-name">Track 2</td>
                   <td class="track-time">4:20</td>
                   <td class="track-actions">
-                    <img src="plus.png" alt="Plus" class="plus-icon" />
-                    <img src="heart-icon.png" alt="Like" class="heart-icon" />
-                    <img src="more-icon.png" alt="More" class="more-icon" />
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(1)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(1)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
                   </td>
                 </tr>
-                <tr onclick="changeSong(2)">
+                <tr>
                   <td class="track-number">3</td>
-                  <td class="track-name">Track 3</td>
+                  <td onclick="changeSong(2)" class="track-name">Track 3</td>
                   <td class="track-time">5:10</td>
                   <td class="track-actions">
-                    <img src="plus.png" alt="Plus" class="plus-icon" />
-                    <img src="heart-icon.png" alt="Like" class="heart-icon" />
-                    <img src="more-icon.png" alt="More" class="more-icon" />
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(2)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(2)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
                   </td>
                 </tr>
-                <tr onclick="changeSong(3)">
+                <tr>
                   <td class="track-number">4</td>
-                  <td class="track-name">Track 4</td>
+                  <td onclick="changeSong(3)" class="track-name">Track 4</td>
                   <td class="track-time">6:10</td>
                   <td class="track-actions">
-                    <img src="plus.png" alt="Plus" class="plus-icon" />
-                    <img src="heart-icon.png" alt="Like" class="heart-icon" />
-                    <img src="more-icon.png" alt="More" class="more-icon" />
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(3)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(3)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <!-- Media Player Sectiom -->
+        <!-- Media Player Section -->
         <div class="player-section">
           <div class="track-info">
             <div class="track-details">
@@ -119,6 +160,7 @@
             </div>
           </div>
         </div>
+        <!-- Control icons -->
         <div class="player-controls">
           <img
             onclick="skipBack()"
@@ -181,12 +223,41 @@
       </main>
     </div>
     <!-- Footer Section -->
-    <!-- <footer>
-      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-    </footer> -->
+    <footer>
+      <p>&copy; Music Album Website. All rights reserved.</p>
+      <a href="https://icons8.com/icons/set/play--style-ios-filled">Mute,</a>
+      <a href="https://icons8.com/icons/set/sound--style-ios-filled">Unmute,</a>
+      <a
+        href="https://icons8.com/icons/set/profile--style-fluency-systems-regular"
+        >Profile,</a
+      >
+      <a
+        href="https://icons8.com/icons/set/hamburger--style-fluency-systems-regular"
+        >Hamburger Menu,</a
+      >
+      <a href="https://icons8.com/icons/set/play--style-fluency-systems-regular"
+        >Play,</a
+      >
+      <a
+        href="https://icons8.com/icons/set/pause--style-fluency-systems-regular"
+        >Pause,</a
+      >
+      <a
+        href="https://icons8.com/icons/set/check--style-fluency-systems-regular"
+        >Check,</a
+      >
+      <a href="https://icons8.com/icons/set/skip-back--style-ios-filled"
+        >Skip Back, Skip Forward,</a
+      >
+      <a href="https://icons8.com/icons/set/plus--style-ios-filled">Plus,</a>
+      <a href="https://icons8.com/icons/set/heart--style-ios-filled">Heart</a
+      ><span class="space"></span> icon by<span class="space"></span>
+      <a href="https://icons8.com"><span></span>Icons8</a><br />
+      <a
+        href="https://unsplash.com/fr/photos/une-tulipe-bordeaux-fonce-est-capturee-en-detail-iikkJ9H_ijM"
+        >Album Cover</a
+      ><span class="space"></span>image by<span class="space"></span
+      ><a href="https://unsplash.com/fr">Unsplash</a>
+    </footer>
   </body>
 </html>

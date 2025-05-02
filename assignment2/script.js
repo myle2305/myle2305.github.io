@@ -8,6 +8,8 @@ const trackList = [
   { id: 4, src: "p-hase_Water-Feature.mp3" },
 ];
 
+let playlist = [0];
+
 const trackNames = ["Track 1", "Track 2", "Track 3", "Track 4"];
 
 const fileNames = [
@@ -121,9 +123,9 @@ audioProgress.addEventListener("input", () => {
   audio.currentTime = audioProgress.value;
   updateCurrentTime(Math.floor(audio.currentTime));
 });
+updatePlaylist();
 function updateDuration(durationInSecond) {
   const duration = document.getElementById("duration");
-  console.log(durationInSecond);
   let minute = 0;
   while (durationInSecond >= 60) {
     durationInSecond = durationInSecond - 60;
@@ -134,6 +136,7 @@ function updateDuration(durationInSecond) {
   }
   duration.textContent = minute + ":" + durationInSecond;
 }
+
 function updateCurrentTime(currentTimeInSecond) {
   const currentTime = document.getElementById("current-time");
   let minute = 0;
@@ -145,4 +148,42 @@ function updateCurrentTime(currentTimeInSecond) {
     currentTimeInSecond = "0" + currentTimeInSecond;
   }
   currentTime.textContent = minute + ":" + currentTimeInSecond;
+}
+
+function addRemovePlaylist(index) {
+  if (playlist.includes(index)) {
+    playlist = playlist.filter((e) => e !== index);
+  } else {
+    playlist.push(index);
+  }
+  updatePlaylist();
+}
+
+function updatePlaylist() {
+  const plusIcons = document.getElementsByClassName("plus-icon");
+  for (let i = 0; i < plusIcons.length; i++) {
+    const plusIcon = plusIcons[i];
+    plusIcon.src = "plus.png";
+  }
+  for (let i = 0; i < playlist.length; i++) {
+    const plusIcon = plusIcons[playlist[i]];
+    plusIcon.src = "check-icon.png";
+  }
+  const playlistSong = document.getElementById("playlist-song");
+  playlistSong.replaceChildren();
+  for (let i = 0; i < playlist.length; i++) {
+    let newDiv = document.createElement("div");
+    newDiv.textContent = trackNames[playlist[i]];
+    playlistSong.appendChild(newDiv);
+  }
+}
+
+function changeHeart(index) {
+  const icons = document.getElementsByClassName("heart-icon");
+  const icon = icons[index];
+  if (icon.src.includes("heart-icon.png")) {
+    icon.src = "heart-icon-fill.png";
+  } else {
+    icon.src = "heart-icon.png";
+  }
 }
