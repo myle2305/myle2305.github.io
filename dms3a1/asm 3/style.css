@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(255, 170, 244);
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  background-color: rgb(213, 173, 255);
+  height: 80vh;
+  width: 80vw;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+#appearance-box {
+  background-color: rgb(176, 176, 176);
+  height: 90%;
+  width: 50px;
+  margin: 15px;
+  border-style: inset;
+  border-color: rgb(202, 209, 212);
+  box-shadow: 5px 5px 5px rgba(82, 82, 82, 10);
+}
+
+#clothes-box {
+  background-color: rgb(176, 176, 176);
+  height: 90%;
+  width: 50px;
+  margin: 15px;
+  border-style: inset;
+  border-color: rgb(202, 209, 212);
+  box-shadow: 5px 5px 5px rgba(82, 82, 82, 10);
+}
+
+button {
+  background-color: aliceblue;
+  color: black;
+  border-color: rgb(142, 145, 146);
+  box-shadow: 3px 3px 3px rgb(50, 50, 50);
+}
