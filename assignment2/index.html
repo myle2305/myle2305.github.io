@@ -3,9 +3,259 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>A2</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ----- -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
+
   <body>
-    <h2>assignment 2</h2>
+    <!-- Navigation Section -->
+    <!-- this section is used to simulate the website's navigation bar. These icons are inactive. -->
+    <!-- in the hamburger menu, there will be song suggestions for users based on personal preferences, trending songs recommendation etc -->
+    <!-- users can search name of the song they want to listen or search artist names and albums -->
+    <div class="navigation-bar">
+      <div class="hamburger-menu">
+        <img src="icons8-menu-50.png" alt="hamburger-menu" />
+      </div>
+      <input class="search-bar" type="text" placeholder="Search..." />
+      <div class="profile-icon">
+        <img src="icons8-male-user-48.png" alt="profile" />
+      </div>
+    </div>
+    <!-- Page content: include side bar and main section -->
+    <div class="page-content">
+      <!-- Side Bar Section -->
+      <div class="container-1">
+        <div class="side-container">
+          <h1>Library</h1>
+          <div class="playlist-title">Playlist</div>
+          <div class="my-playlist-container">
+            <h4>My Playlist</h4>
+            <div id="playlist-song">
+              <p>Track 1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Section -->
+      <main class="container-2">
+        <div class="title-section">
+          <!-- artist and album names are both fake -->
+          <!-- they are created to simulate the music album website -->
+          <!-- probably attach artists and albums separate page links and lead users to another page if users want to find out about artists and albums information  -->
+          <h2>Ephemeral Echoes</h2>
+          <p>By Genevieve Moreau | Album | 2025 | 4 tracks</p>
+        </div>
+        <div class="cover-track-container">
+          <img class="album-cover" src="track1Cover.jpg" alt="cover" />
+          <div class="track-section">
+            <table>
+              <thead>
+                <tr>
+                  <th class="track-number">#</th>
+                  <th class="track-name">Tracks</th>
+                  <th class="track-time">Time</th>
+                  <th class="track-actions"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="track-number">1</td>
+                  <td onclick="changeSong(0)" class="track-name">Track 1</td>
+                  <td class="track-time">3:45</td>
+                  <td class="track-actions">
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(0)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(0)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="track-number">2</td>
+                  <td onclick="changeSong(1)" class="track-name">Track 2</td>
+                  <td class="track-time">4:20</td>
+                  <td class="track-actions">
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(1)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(1)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="track-number">3</td>
+                  <td onclick="changeSong(2)" class="track-name">Track 3</td>
+                  <td class="track-time">5:10</td>
+                  <td class="track-actions">
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(2)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(2)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="track-number">4</td>
+                  <td onclick="changeSong(3)" class="track-name">Track 4</td>
+                  <td class="track-time">6:10</td>
+                  <td class="track-actions">
+                    <!-- Add playlist icon -->
+                    <img
+                      onclick="addRemovePlaylist(3)"
+                      src="plus.png"
+                      alt="Plus"
+                      class="plus-icon"
+                    />
+                    <!-- Heart icon -->
+                    <img
+                      onclick="changeHeart(3)"
+                      src="heart-icon.png"
+                      alt="Like"
+                      class="heart-icon"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Media Player Section -->
+        <div class="player-section">
+          <div class="track-info">
+            <div class="track-details">
+              <audio src="p-hase_Hes.mp3" id="audio"></audio>
+              <p class="track-name-player" id="track-name-player">Track 1</p>
+              <p class="artist-name" id="artist-name">Genevieve Moreau</p>
+            </div>
+          </div>
+        </div>
+        <!-- Control icons -->
+        <div class="player-controls">
+          <img
+            onclick="skipBack()"
+            src="skip-back-icon.png"
+            alt="Skip Back"
+            class="control-button"
+            id="prev-track"
+          />
+          <img
+            onclick="playOrPause()"
+            src="play-button.png"
+            alt="Play"
+            class="control-button"
+            id="play-pause"
+          />
+          <img
+            onclick="skipForward()"
+            src="skip-forward-icon.png"
+            alt="Skip Forward"
+            class="control-button"
+            id="next-track"
+          />
+        </div>
+        <!-- Progress Bar section -->
+        <div class="progress-bar-container">
+          <input
+            class="progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            id="audio-progress"
+          />
+          <div class="time-stamps">
+            <span id="current-time">0:00</span>
+            <span id="duration">3:45</span>
+          </div>
+        </div>
+        <!-- Volume Controls -->
+        <div class="volume-controls">
+          <img
+            onclick="muteUnmute()"
+            src="volume-high-icon.png"
+            alt="Volume"
+            class="control-button"
+            id="volume-icon"
+          />
+          <!-- Volume Slider -->
+          <div class="volume-slider">
+            <input
+              type="range"
+              min="0"
+              max="1"
+              value="1"
+              step="0.01"
+              id="volume-range"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; Music Album Website. All rights reserved.</p>
+      <a href="https://icons8.com/icon/9976/mute">Mute,</a>
+      <a href="https://icons8.com/icon/9983/voice">Unmute,</a>
+      <a href="https://icons8.com/icon/H101gtpJBVoh/male-user">Profile,</a>
+      <a href="https://icons8.com/icon/quuyJoZCkYni/menu">Hamburger Menu,</a>
+      <a href="https://icons8.com/icon/9978/play">Play,</a>
+      <a href="https://icons8.com/icon/9987/pause">Pause,</a>
+      <a href="https://icons8.com/icon/VfY8rwjNJSAQ/done">Check,</a>
+      <a href="https://icons8.com/icon/9985/skip-to-start">Skip Back,</a>
+      <a href="https://icons8.com/icon/9990/end">Skip Forward,</a>
+      <a href="https://icons8.com/icon/1501/plus">Plus,</a>
+      <a href="https://icons8.com/icon/7697/heart">Heart</a
+      ><span class="space"></span> icon by<span class="space"></span>
+      <a href="https://icons8.com"><span></span>Icons8</a><br />
+      <a
+        href="https://unsplash.com/fr/photos/une-tulipe-bordeaux-fonce-est-capturee-en-detail-iikkJ9H_ijM"
+        >Album Cover</a
+      ><span class="space"></span>image by<span class="space"></span
+      ><a href="https://unsplash.com/fr">Unsplash</a>
+    </footer>
   </body>
 </html>
+
+<!-- This is my mid-fidelity wireframe:
+"https://www.figma.com/design/amPBRJUT3O2MnO3vgIoqR7/Untitled?node-id=0-1&p=f&t=U1ysbgqKWNafUMmt-0" -->
+<!-- At the last minute, I realized it's better to use .svg instead of .png for icons, because when using .png, the image will be broken when scaled up. -->
