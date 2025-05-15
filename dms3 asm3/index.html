@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+    <script src="https://unpkg.com/tone/build/Tone.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="appearance-box">
+        <button class="items-button">👤</button>
+        <button class="items-button">👁️</button>
+        <button class="items-button">💄</button>
+        <button class="items-button">👩‍🦰</button>
+      </div>
+      <div id="model-box"></div>
+      <div id="clothes-box"></div>
+    </div>
+    <div class="tabs">
+      <button class="tabs-button" onclick="showCategory('appearance')">
+        Appearance
+      </button>
+      <button class="tabs-button" onclick="showCategory('clothes')">
+        Clothes
+      </button>
+      <button class="tabs-button" onclick="showCategory('reset')">Reset</button>
+      <button class="tabs-button" onclick="showCategory('music-on')">🎵</button>
+      <button class="tabs-button" onclick="showCategory('music-on')">🔈</button>
+    </div>
+    <div id="items"></div>
+  </body>
+</html>
