@@ -1,7 +1,7 @@
 const stage = new Konva.Stage({
   container: "model-box",
-  width: 500,
-  height: 400,
+  width: 900,
+  height: 500,
 });
 
 const layer = new Konva.Layer();
@@ -12,8 +12,9 @@ baseModel.src = "model/base.PNG";
 baseModel.onload = function () {
   const model = new Konva.Image({
     image: baseModel,
-    x: 0,
-    y: 0,
+    x: 100,
+    y: 25,
+    draggable: true,
   });
   layer.add(model);
   layer.draw();
@@ -49,9 +50,32 @@ appearanceList.forEach((file) => {
   img.onload = function () {
     const appearance = new Konva.Image({
       image: img,
+      x: 100,
+      y: 25,
       draggable: true,
     });
     layer.add(appearance);
     layer.draw();
   };
+});
+
+// Tone js
+const bubbleSynth = new Tone.MembraneSynth().toDestination();
+
+let audioStarted = false;
+
+function playBubbleSound() {
+  if (!audioStarted) {
+    Tone.start().then(() => {
+      audioStarted = true;
+      bubbleSynth.triggerAttackRelease("C5", "6n");
+    });
+  } else {
+    bubbleSynth.triggerAttackRelease("C5", "6n");
+  }
+}
+
+// Play bubble sound on any button click
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", playBubbleSound);
 });
