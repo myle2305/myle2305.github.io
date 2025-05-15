@@ -1,27 +1,237 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
-* {
-  box-sizing: border-box;
+body {
+  background-color: rgb(24, 24, 24);
+}
+.title-container {
+  margin-right: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: bold;
+  font-variation-settings: "width" 100;
+  width: 60%;
+  line-height: 96px;
+  font-size: 6rem;
+  color: rgb(163, 163, 160);
+  letter-spacing: -1px;
+  text-align: right;
+  text-transform: uppercase;
+  text-wrap-mode: wrap;
   margin: 0;
 }
-
-:root {
-  --col-01: black;
-  --col-02: rgb(61, 234, 61));
-  --col-03: black;
-  --col-04: rgb(255, 255, 255);
-  --border: single 1rem var(--col-02);
+h2 {
+  margin-left: 20px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: rgb(163, 163, 160);
+}
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "width" 100;
+  color: rgb(163, 163, 160);
+  line-height: 24px;
+  letter-spacing: 0.25px;
+}
+.title-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-container {
+  display: flex;
+  flex-direction: row;
+}
+.go-to-orb-farm {
+  width: 200px;
+  display: inline-block;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.go-to-orb-farm-button {
+  background-color: rgb(163, 163, 160);
+  /* set border radius to be a large number for the button to be round. */
+  border-radius: 3000px;
+  width: 150px;
+  border-color: rgb(163, 163, 160);
+  border-style: solid;
+  height: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.go-to-orb-farm-button:hover {
+  background-color: black;
+  color: antiquewhite;
+  transition: 0.5s;
+}
+.go-to-orb-farm-button:active {
+  background-color: rgb(250, 200, 0);
+  border-color: transparent;
+  color: black;
+  transition: 0.5s;
+}
+.list-of-questions-container {
+  width: 100%;
+  display: inline-block;
+}
+.list-of-questions > li > a {
+  text-decoration: none;
+  color: inherit;
+}
+.list-of-questions > li > a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.question-container {
+  background-color: rgb(24, 24, 24);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.placeholder {
+  height: 50vh;
 }
 
-body{
-    font-family: 'Work Sans', sans-serif;
-    background-color: black;
-    color: rgb(231, 255, 98);
-    line-height: 1.5;
+.question-content {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: rgb(163, 163, 160);
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  text-align: center;
 }
-header{
-    
+.answer-container {
+  width: 80%;
+  height: 100vh;
+  position: relative;
 }
-
-
+.answer-container-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+.answer-container-left {
+  margin-left: auto;
+  margin-left: 0;
+}
+.answer-text {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  line-height: 58px;
+  letter-spacing: normal;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  font-style: bold;
+  text-align: left;
+}
+.answer-text-color-white {
+  color: white;
+  font-weight: 200;
+  font-size: 40px;
+  margin-left: 10px;
+}
+.answer-right-bottom {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.answer-left-bottom {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.answer-container-image {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: right;
+  gap: 5px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  color: rgb(163, 163, 160);
+  font-size: 1rem;
+  filter: darken;
+}
+.answer-container-element {
+  width: 90%;
+  margin: 8px;
+}
+.answer-container-column-1 {
+  background-color: transparent;
+  height: 10vh;
+  width: 20vw;
+  padding-left: 30px;
+}
+.example-1 {
+  grid-row: 1 / span 2;
+  grid-column: 2 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example-2 {
+  grid-column: 3 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example-3 {
+  grid-column: 3 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+.answer-text-half-width {
+  max-width: 60%;
+}
+.link-ref {
+  color: rgb(124, 45, 0);
+  text-decoration: none;
+  font-weight: 700;
+}
+.link-to-image {
+  color: rgb(163, 163, 160);
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-ref:hover,
+.link-to-image:hover {
+  text-decoration: underline;
+  color: aqua;
+}
