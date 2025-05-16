@@ -17,26 +17,23 @@
   </head>
   <body>
     <div class="container">
-      <div id="appearance-box">
+      <div id="appearance-box" class="side-tab">
         <button class="items-button">👤</button>
         <button class="items-button">👁️</button>
         <button class="items-button">💄</button>
         <button class="items-button">👩‍🦰</button>
       </div>
-      <div id="model-box"></div>
+      <div id="model-box" class="side-tab"></div>
       <div id="clothes-box"></div>
     </div>
     <div class="tabs">
-      <button class="tabs-button" onclick="showCategory('appearance')">
+      <button class="tabs-button" onclick="toggleVisibility()">
         Appearance
       </button>
-      <button class="tabs-button" onclick="showCategory('clothes')">
-        Clothes
-      </button>
-      <button class="tabs-button" onclick="showCategory('reset')">Reset</button>
-      <button class="tabs-button" onclick="showCategory('music-on')">🎵</button>
-      <button class="tabs-button" onclick="showCategory('music-on')">🔈</button>
+      <button class="tabs-button">Clothes</button>
+      <button class="tabs-button">Reset</button>
+      <button id="sound-on" class="tabs-button">🎵</button>
+      <button id="music-on" class="tabs-button">🔈</button>
     </div>
-    <div id="items"></div>
   </body>
 </html>

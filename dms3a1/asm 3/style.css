@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 #clothes-box {
@@ -42,6 +42,7 @@ body {
   box-shadow: 5px 5px 5px rgb(50, 50, 50);
   display: flex;
   flex-direction: column;
+  visibility: hidden;
 }
 
 .tabs {

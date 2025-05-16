@@ -41,7 +41,7 @@ const appearanceList = [
   "skin1.PNG",
   "skin2.PNG",
   "skin3.PNG",
-  "Skin4.PNG",
+  "skin4.PNG",
 ];
 
 appearanceList.forEach((file) => {
@@ -59,6 +59,16 @@ appearanceList.forEach((file) => {
   };
 });
 
+// tab visibility
+function toggleVisibility() {
+  var leftTab = document.getElementById("appearance-box");
+  if (leftTab.style.visibility === "hidden") {
+    leftTab.style.visibility = "visible";
+  } else {
+    leftTab.style.visibility = "hidden";
+  }
+}
+
 // Tone js
 const bubbleSynth = new Tone.MembraneSynth().toDestination();
 
@@ -68,14 +78,47 @@ function playBubbleSound() {
   if (!audioStarted) {
     Tone.start().then(() => {
       audioStarted = true;
-      bubbleSynth.triggerAttackRelease("C5", "6n");
+      bubbleSynth.triggerAttackRelease("C6", "8n");
     });
   } else {
-    bubbleSynth.triggerAttackRelease("C5", "6n");
+    bubbleSynth.triggerAttackRelease("C6", "8n");
   }
 }
 
 // Play bubble sound on any button click
 document.querySelectorAll("button").forEach((button) => {
   button.addEventListener("click", playBubbleSound);
+});
+
+let isMuted = false;
+
+const soundButton = document.getElementById("sound-on");
+
+soundButton.addEventListener("click", () => {
+  isMuted = !isMuted;
+  Tone.Destination.mute = isMuted;
+
+  soundButton.textContent = isMuted ? "" : "🎵";
+});
+
+// background sound
+const ambientPlayer = new Tone.Player(
+  "You Know Me - Jeremy Black.mp3"
+).toDestination();
+ambientPlayer.loop = true;
+
+let musicMuted = false;
+const musicButton = document.getElementById("music-on");
+
+musicButton.addEventListener("click", async () => {
+  await Tone.start();
+
+  if (!ambientPlayer.state || ambientPlayer.state === "stopped") {
+    ambientPlayer.start();
+  }
+
+  musicMuted = !musicMuted;
+  ambientPlayer.mute = musicMuted;
+
+  musicButton.textContent = musicMuted ? "🔇" : "🔈";
 });
