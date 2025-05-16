@@ -1,5 +1,64 @@
+#start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffccf9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+}
+
+#start-button {
+  width: 80px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+}
+@keyframes pump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+#start-button {
+  animation: pump 1s infinite;
+  transition: transform 0.3s ease;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+}
+
+#start-button:hover {
+  background-color: rgb(249, 24, 144);
+}
+
 body {
-  background-color: rgb(255, 170, 244);
+  background-color: #ffccf9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 #clothes-box {
@@ -42,6 +101,7 @@ body {
   box-shadow: 5px 5px 5px rgb(50, 50, 50);
   display: flex;
   flex-direction: column;
+  visibility: hidden;
 }
 
 .tabs {
