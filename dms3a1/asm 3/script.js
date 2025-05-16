@@ -98,7 +98,7 @@ soundButton.addEventListener("click", () => {
   isMuted = !isMuted;
   Tone.Destination.mute = isMuted;
 
-  soundButton.textContent = isMuted ? "" : "🎵";
+  soundButton.textContent = isMuted ? "🔇" : "🔈";
 });
 
 // background sound
@@ -107,18 +107,13 @@ const ambientPlayer = new Tone.Player(
 ).toDestination();
 ambientPlayer.loop = true;
 
-let musicMuted = false;
-const musicButton = document.getElementById("music-on");
+const startBtn = document.getElementById("start-button");
+const startScreen = document.getElementById("start-screen");
+const mainGame = document.getElementsByClassName("container");
 
-musicButton.addEventListener("click", async () => {
+startBtn.addEventListener("click", async () => {
   await Tone.start();
-
-  if (!ambientPlayer.state || ambientPlayer.state === "stopped") {
-    ambientPlayer.start();
-  }
-
-  musicMuted = !musicMuted;
-  ambientPlayer.mute = musicMuted;
-
-  musicButton.textContent = musicMuted ? "🔇" : "🔈";
+  ambientPlayer.start();
+  startScreen.style.display = "none";
+  mainGame.style.display = "block";
 });
