@@ -59,16 +59,6 @@ appearanceList.forEach((file) => {
   };
 });
 
-// tab visibility
-function toggleVisibility() {
-  var leftTab = document.getElementById("appearance-box");
-  if (leftTab.style.visibility === "hidden") {
-    leftTab.style.visibility = "visible";
-  } else {
-    leftTab.style.visibility = "hidden";
-  }
-}
-
 // Tone js
 const bubbleSynth = new Tone.MembraneSynth().toDestination();
 
