@@ -125,6 +125,10 @@ body {
   z-index: 100;
 }
 
+.option-box {
+  z-index: 100;
+}
+
 .option-box.visible {
   visibility: visible;
   opacity: 1;

@@ -62,6 +62,20 @@ eyeBtn.addEventListener("click", () => {
   eyeBox.classList.toggle("visible");
 });
 
+const lipBtn = document.getElementById("lipBtn");
+const lipBox = document.getElementById("lips-box");
+
+lipBtn.addEventListener("click", () => {
+  lipBox.classList.toggle("visible");
+});
+
+const cheekBtn = document.getElementById("cheekBtn");
+const cheekBox = document.getElementById("cheeks-box");
+
+cheekBtn.addEventListener("click", () => {
+  cheekBox.classList.toggle("visible");
+});
+
 // Main
 const stage = new Konva.Stage({
   container: "model-box",
@@ -166,6 +180,58 @@ document.querySelectorAll(".eye-option").forEach((eyeOption) => {
   });
 });
 
+let lipImage = null;
+document.querySelectorAll("#lips-box .options").forEach((lipOption) => {
+  lipOption.addEventListener("click", () => {
+    const lipSrc = lipOption.getAttribute("data-src");
+    const newLipImage = new Image();
+    newLipImage.src = lipSrc;
+
+    newLipImage.onload = function () {
+      if (lipImage) {
+        lipImage.destroy();
+      }
+
+      lipImage = new Konva.Image({
+        image: newLipImage,
+        x: 100,
+        y: 25,
+        name: "lips",
+      });
+
+      layer.add(lipImage);
+      bringFrameToFront();
+      layer.draw();
+    };
+  });
+});
+
+let cheekImage = null;
+document.querySelectorAll("#cheeks-box .options").forEach((cheekOption) => {
+  cheekOption.addEventListener("click", () => {
+    const cheekSrc = cheekOption.getAttribute("data-src");
+    const newCheekImage = new Image();
+    newCheekImage.src = cheekSrc;
+
+    newCheekImage.onload = function () {
+      if (cheekImage) {
+        cheekImage.destroy();
+      }
+
+      cheekImage = new Konva.Image({
+        image: newCheekImage,
+        x: 100,
+        y: 25,
+        name: "cheeks",
+      });
+
+      layer.add(cheekImage);
+      bringFrameToFront();
+      layer.draw();
+    };
+  });
+});
+
 function bringFrameToFront() {
   const oldFrame = layer.findOne(".frame");
   if (oldFrame) oldFrame.destroy();
@@ -178,4 +244,6 @@ function bringFrameToFront() {
     listening: false,
   });
   layer.add(frame);
+  frame.moveToTop();
+  layer.draw();
 }
