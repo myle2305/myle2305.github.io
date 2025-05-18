@@ -44,36 +44,54 @@ startBtn.addEventListener("click", async () => {
   await Tone.start();
   ambientPlayer.start();
   startScreen.style.display = "none";
-  mainGame.style.display = "block";
 });
 
 // Toggle
 const skinBtn = document.getElementById("skinBtn");
 const skinBox = document.getElementById("skin-box");
 
+function hideAllAppearanceBox() {
+  skinBox.classList.add("hidden");
+  eyeBox.classList.add("hidden");
+  lipBox.classList.add("hidden");
+  cheekBox.classList.add("hidden");
+}
+
 skinBtn.addEventListener("click", () => {
-  skinBox.classList.toggle("visible");
+  if (skinBox.classList.contains("hidden")) {
+    hideAllAppearanceBox();
+  }
+  skinBox.classList.toggle("hidden");
 });
 
 const eyeBtn = document.getElementById("eyeBtn");
 const eyeBox = document.getElementById("eyes-box");
 
 eyeBtn.addEventListener("click", () => {
-  eyeBox.classList.toggle("visible");
+  if (eyeBox.classList.contains("hidden")) {
+    hideAllAppearanceBox();
+  }
+  eyeBox.classList.toggle("hidden");
 });
 
 const lipBtn = document.getElementById("lipBtn");
 const lipBox = document.getElementById("lips-box");
 
 lipBtn.addEventListener("click", () => {
-  lipBox.classList.toggle("visible");
+  if (lipBox.classList.contains("hidden")) {
+    hideAllAppearanceBox();
+  }
+  lipBox.classList.toggle("hidden");
 });
 
 const cheekBtn = document.getElementById("cheekBtn");
 const cheekBox = document.getElementById("cheeks-box");
 
 cheekBtn.addEventListener("click", () => {
-  cheekBox.classList.toggle("visible");
+  if (cheekBox.classList.contains("hidden")) {
+    hideAllAppearanceBox();
+  }
+  cheekBox.classList.toggle("hidden");
 });
 
 // Main
@@ -117,10 +135,12 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
     newSkinImage.src = skinSrc;
 
     newSkinImage.onload = function () {
+      // Remove old skin if it exists
       if (skinImage) {
         skinImage.destroy();
       }
 
+      // Add new skin (always on top of base model)
       skinImage = new Konva.Image({
         image: newSkinImage,
         x: 100,
@@ -129,6 +149,7 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
       });
       layer.add(skinImage);
 
+      // Remove and re-add frame to keep it always on top
       const oldFrame = layer.findOne(".frame");
       if (oldFrame) {
         oldFrame.destroy();
@@ -157,19 +178,21 @@ document.querySelectorAll(".eye-option").forEach((eyeOption) => {
     newEyeImage.src = eyeSrc;
 
     newEyeImage.onload = function () {
+      // Remove the previous eye image
       if (eyeImage) {
         eyeImage.destroy();
       }
 
+      // Add new eye image
       eyeImage = new Konva.Image({
         image: newEyeImage,
-        x: 100,
+        x: 100, // Adjust as needed
         y: 25,
         name: "eye",
       });
 
       layer.add(eyeImage);
-      bringFrameToFront();
+      bringFrameToFront(); // If you use frame layering
       layer.draw();
     };
   });
@@ -239,5 +262,6 @@ function bringFrameToFront() {
     listening: false,
   });
   layer.add(frame);
+  frame.moveToTop();
   layer.draw();
 }
