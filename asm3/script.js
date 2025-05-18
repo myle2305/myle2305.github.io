@@ -46,7 +46,8 @@ startBtn.addEventListener("click", async () => {
   startScreen.style.display = "none";
 });
 
-// Toggle
+// Toggle left bar
+
 const skinBtn = document.getElementById("skinBtn");
 const skinBox = document.getElementById("skin-box");
 
@@ -55,6 +56,7 @@ function hideAllAppearanceBox() {
   eyeBox.classList.add("hidden");
   lipBox.classList.add("hidden");
   cheekBox.classList.add("hidden");
+  hairBox.classList.add("hidden");
 }
 
 skinBtn.addEventListener("click", () => {
@@ -93,6 +95,86 @@ cheekBtn.addEventListener("click", () => {
   }
   cheekBox.classList.toggle("hidden");
 });
+
+const hairBtn = document.getElementById("hairBtn");
+const hairBox = document.getElementById("hair-box");
+
+hairBtn.addEventListener("click", () => {
+  if (hairBox.classList.contains("hidden")) {
+    hideAllAppearanceBox();
+  }
+  hairBox.classList.toggle("hidden");
+});
+
+// Toggle right bar
+// const topBtn = document.getElementById("topBtn");
+// const topBox = document.getElementById("top-box");
+
+// function hideAllAppearanceBox() {
+//   topBox.classList.add("hidden");
+//   bottomBox.classList.add("hidden");
+//   skirtBox.classList.add("hidden");
+//   jacketBox.classList.add("hidden");
+//   socksBox.classList.add("hidden");
+//   shoesBox.classList.add("hidden");
+// }
+
+// topBtn.addEventListener("click", () => {
+//   if (topBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   topBox.classList.toggle("hidden");
+// });
+
+// const bottomBtn = document.getElementById("bottomBtn");
+// const bottomBox = document.getElementById("bottom-box");
+
+// bottomBtn.addEventListener("click", () => {
+//   if (bottomBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   bottomBox.classList.toggle("hidden");
+// });
+
+// const skirtBtn = document.getElementById("skirtBtn");
+// const skirtBox = document.getElementById("skirt-box");
+
+// skirtBtn.addEventListener("click", () => {
+//   if (skirtBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   skirtBox.classList.toggle("hidden");
+// });
+
+// const jacketBtn = document.getElementById("jacketBtn");
+// const jacketBox = document.getElementById("jacket-box");
+
+// jacketBtn.addEventListener("click", () => {
+//   if (jacketBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   jacketBox.classList.toggle("hidden");
+// });
+
+// const socksBtn = document.getElementById("socksBtn");
+// const socksBox = document.getElementById("socks-box");
+
+// socksBtn.addEventListener("click", () => {
+//   if (socksBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   socksBox.classList.toggle("hidden");
+// });
+
+// const shoesBtn = document.getElementById("shoesBtn");
+// const shoesBox = document.getElementById("shoes-box");
+
+// shoesBtn.addEventListener("click", () => {
+//   if (shoesBox.classList.contains("hidden")) {
+//     hideAllAppearanceBox();
+//   }
+//   shoesBox.classList.toggle("hidden");
+// });
 
 // Main
 const stage = new Konva.Stage({
@@ -135,12 +217,10 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
     newSkinImage.src = skinSrc;
 
     newSkinImage.onload = function () {
-      // Remove old skin if it exists
       if (skinImage) {
         skinImage.destroy();
       }
 
-      // Add new skin (always on top of base model)
       skinImage = new Konva.Image({
         image: newSkinImage,
         x: 100,
@@ -149,7 +229,6 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
       });
       layer.add(skinImage);
 
-      // Remove and re-add frame to keep it always on top
       const oldFrame = layer.findOne(".frame");
       if (oldFrame) {
         oldFrame.destroy();
@@ -250,18 +329,34 @@ document.querySelectorAll("#cheeks-box .options").forEach((cheekOption) => {
   });
 });
 
-function bringFrameToFront() {
-  const oldFrame = layer.findOne(".frame");
-  if (oldFrame) oldFrame.destroy();
+let hairImage = null;
+document.querySelectorAll("#hair-box .options").forEach((hairOption) => {
+  hairOption.addEventListener("click", () => {
+    const hairSrc = hairOption.getAttribute("data-src");
+    const newHairImage = new Image();
+    newHairImage.src = hairSrc;
 
-  const frame = new Konva.Image({
-    image: frameImage,
-    x: 100,
-    y: 25,
-    name: "frame",
-    listening: false,
+    newHairImage.onload = function () {
+      if (hairImage) {
+        hairImage.destroy();
+      }
+
+      hairImage = new Konva.Image({
+        image: newHairImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(hairImage);
+      layer.draw();
+    };
   });
-  layer.add(frame);
-  frame.moveToTop();
-  layer.draw();
+});
+
+function bringHairToFront() {
+  if (hairImage) {
+    hairImage.moveToTop();
+    layer.draw();
+  }
 }
