@@ -117,12 +117,10 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
     newSkinImage.src = skinSrc;
 
     newSkinImage.onload = function () {
-      // Remove old skin if it exists
       if (skinImage) {
         skinImage.destroy();
       }
 
-      // Add new skin (always on top of base model)
       skinImage = new Konva.Image({
         image: newSkinImage,
         x: 100,
@@ -131,7 +129,6 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
       });
       layer.add(skinImage);
 
-      // Remove and re-add frame to keep it always on top
       const oldFrame = layer.findOne(".frame");
       if (oldFrame) {
         oldFrame.destroy();
@@ -160,21 +157,19 @@ document.querySelectorAll(".eye-option").forEach((eyeOption) => {
     newEyeImage.src = eyeSrc;
 
     newEyeImage.onload = function () {
-      // Remove the previous eye image
       if (eyeImage) {
         eyeImage.destroy();
       }
 
-      // Add new eye image
       eyeImage = new Konva.Image({
         image: newEyeImage,
-        x: 100, // Adjust as needed
+        x: 100,
         y: 25,
         name: "eye",
       });
 
       layer.add(eyeImage);
-      bringFrameToFront(); // If you use frame layering
+      bringFrameToFront();
       layer.draw();
     };
   });
@@ -244,6 +239,5 @@ function bringFrameToFront() {
     listening: false,
   });
   layer.add(frame);
-  frame.moveToTop();
   layer.draw();
 }
