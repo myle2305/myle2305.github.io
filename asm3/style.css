@@ -1,3 +1,11 @@
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 95vw;
+    height: auto;
+  }
+}
+
 #start-screen {
   position: absolute;
   top: 0;
@@ -77,6 +85,7 @@ body {
   justify-content: space-between;
   margin: 25px;
 }
+
 #appearance-box {
   background-color: rgb(218, 218, 218);
   height: 90%;
@@ -88,6 +97,51 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
+}
+
+#model-box,
+#clothes-box {
+  flex: 1 1 60%;
+  max-width: 60%;
+}
+
+.option-box {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 78px;
+  left: 200px;
+  background-color: rgb(218, 218, 218);
+  height: 622px;
+  width: 60px;
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: visibility 0s, opacity 0.3s ease;
+  z-index: 100;
+}
+
+.option-box.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.options {
+  border-style: none;
+  background-color: transparent;
+}
+
+.options:hover {
+  background-color: rgb(174, 174, 174);
+  transition: 0.25s ease;
+}
+
+#frameLayer {
+  display: none;
 }
 
 #clothes-box {
@@ -138,6 +192,9 @@ body {
   font-style: normal;
   font-size: 1.2rem;
   margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tabs-button:hover {

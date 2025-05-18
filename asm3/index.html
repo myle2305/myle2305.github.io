@@ -21,22 +21,82 @@
       <button id="start-button">Start</button>
     </div>
     <div class="container">
-      <div id="appearance-box" class="side-tab">
+      <div id="appearance-box">
+        <button id="skinBtn" class="items-button">
+          <img src="model/skin-icon.png" />
+        </button>
+        <button id="eyeBtn" class="items-button">
+          <img src="model/eyes-icon.PNG" />
+        </button>
+        <button class="items-button"><img src="model/lips-icon.PNG" /></button>
+        <button class="items-button">
+          <img src="model/cheeks-icon.PNG" />
+        </button>
+        <button class="items-button"><img src="model/hair-icon.PNG" /></button>
+      </div>
+      <div id="skin-box" class="option-box">
+        <img
+          class="skin-option options"
+          data-src="model/skin1.png"
+          src="model/skin1.PNG"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin2.png"
+          src="model/skin2.png"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin3.png"
+          src="model/skin3.png"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin4.png"
+          src="model/skin4.png"
+        />
+      </div>
+      <div id="eyes-box" class="option-box">
+        <img
+          class="eye-option options"
+          data-src="model/eyes1.png"
+          src="model/eyes1.png"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes2.png"
+          src="model/eyes2.png"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes3.png"
+          src="model/eyes3.png"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes4.png"
+          src="model/eyes4.png"
+        />
+      </div>
+      <div id="model-box">
+        <img id="skinLayer" />
+        <img id="frameLayer" src="model/frame.PNG" />
+      </div>
+      <div id="clothes-box">
         <button class="items-button"><img src="model/skin-icon.png" /></button>
         <button class="items-button"><img src="model/eyes-icon.PNG" /></button>
         <button class="items-button"><img src="model/lips-icon.PNG" /></button>
-        <button class="items-button"><img src="model/hair-icon.jpg" /></button>
+        <button class="items-button">
+          <img src="model/cheeks-icon.PNG" />
+        </button>
+        <button class="items-button"><img src="model/hair-icon.PNG" /></button>
       </div>
-      <div id="model-box" class="side-tab"></div>
-      <div id="clothes-box"></div>
     </div>
     <div class="tabs">
-      <button class="tabs-button" onclick="toggleVisibility()">
-        Appearance
-      </button>
-      <button class="tabs-button">Clothes</button>
-      <button class="tabs-button">Reset</button>
       <button id="sound-on" class="tabs-button">🔈</button>
+      <button class="tabs-button">Undo</button>
+      <button class="tabs-button">Reset</button>
+      <button class="tabs-button">✔️</button>
     </div>
   </body>
 </html>

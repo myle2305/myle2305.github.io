@@ -1,64 +1,3 @@
-const stage = new Konva.Stage({
-  container: "model-box",
-  width: 900,
-  height: 500,
-});
-
-const layer = new Konva.Layer();
-stage.add(layer);
-
-const baseModel = new Image();
-baseModel.src = "model/base.PNG";
-baseModel.onload = function () {
-  const model = new Konva.Image({
-    image: baseModel,
-    x: 100,
-    y: 25,
-    draggable: true,
-  });
-  layer.add(model);
-  layer.draw();
-};
-
-const appearanceList = [
-  "cheeks1.PNG",
-  "cheeks2.PNG",
-  "cheeks3.PNG",
-  "eye1.PNG",
-  "eyes2.PNG",
-  "eyes3.PNG",
-  "eyes4.PNG",
-  "hair1.PNG",
-  "hair2.PNG",
-  "hair3.PNG",
-  "hair4.PNG",
-  "hair5.PNG",
-  "lips1.PNG",
-  "lips2.PNG",
-  "lips3.PNG",
-  "lips4.PNG",
-  "lips5.PNG",
-  "skin1.PNG",
-  "skin2.PNG",
-  "skin3.PNG",
-  "skin4.PNG",
-];
-
-appearanceList.forEach((file) => {
-  const img = new Image();
-  img.src = "model/" + file;
-  img.onload = function () {
-    const appearance = new Konva.Image({
-      image: img,
-      x: 100,
-      y: 25,
-      draggable: true,
-    });
-    layer.add(appearance);
-    layer.draw();
-  };
-});
-
 // Tone js
 const bubbleSynth = new Tone.MembraneSynth().toDestination();
 
@@ -99,7 +38,7 @@ ambientPlayer.loop = true;
 
 const startBtn = document.getElementById("start-button");
 const startScreen = document.getElementById("start-screen");
-const mainGame = document.getElementsByClassName("container");
+const mainGame = document.querySelector(".container");
 
 startBtn.addEventListener("click", async () => {
   await Tone.start();
@@ -107,3 +46,136 @@ startBtn.addEventListener("click", async () => {
   startScreen.style.display = "none";
   mainGame.style.display = "block";
 });
+
+// Toggle
+const skinBtn = document.getElementById("skinBtn");
+const skinBox = document.getElementById("skin-box");
+
+skinBtn.addEventListener("click", () => {
+  skinBox.classList.toggle("visible");
+});
+
+const eyeBtn = document.getElementById("eyeBtn");
+const eyeBox = document.getElementById("eyes-box");
+
+eyeBtn.addEventListener("click", () => {
+  eyeBox.classList.toggle("visible");
+});
+
+// Main
+const stage = new Konva.Stage({
+  container: "model-box",
+  width: 900,
+  height: 500,
+});
+
+const layer = new Konva.Layer();
+stage.add(layer);
+
+let baseModelImage, frameImage;
+let skinImage = null;
+let model = null;
+
+// Load base model
+baseModelImage = new Image();
+baseModelImage.src = "model/base.PNG";
+
+frameImage = new Image();
+frameImage.src = "model/frame.PNG";
+
+baseModelImage.onload = function () {
+  model = new Konva.Image({
+    image: baseModelImage,
+    x: 100,
+    y: 25,
+    name: "model",
+  });
+  layer.add(model);
+  layer.draw();
+};
+
+// Handle skin changes
+document.querySelectorAll(".skin-option").forEach((skinOption) => {
+  skinOption.addEventListener("click", () => {
+    const skinSrc = skinOption.getAttribute("data-src");
+
+    const newSkinImage = new Image();
+    newSkinImage.src = skinSrc;
+
+    newSkinImage.onload = function () {
+      // Remove old skin if it exists
+      if (skinImage) {
+        skinImage.destroy();
+      }
+
+      // Add new skin (always on top of base model)
+      skinImage = new Konva.Image({
+        image: newSkinImage,
+        x: 100,
+        y: 25,
+        name: "skin",
+      });
+      layer.add(skinImage);
+
+      // Remove and re-add frame to keep it always on top
+      const oldFrame = layer.findOne(".frame");
+      if (oldFrame) {
+        oldFrame.destroy();
+      }
+
+      const frame = new Konva.Image({
+        image: frameImage,
+        x: 100,
+        y: 25,
+        name: "frame",
+        listening: false,
+      });
+      layer.add(frame);
+
+      layer.draw();
+    };
+  });
+});
+
+let eyeImage = null;
+document.querySelectorAll(".eye-option").forEach((eyeOption) => {
+  eyeOption.addEventListener("click", () => {
+    const eyeSrc = eyeOption.getAttribute("data-src");
+
+    const newEyeImage = new Image();
+    newEyeImage.src = eyeSrc;
+
+    newEyeImage.onload = function () {
+      // Remove the previous eye image
+      if (eyeImage) {
+        eyeImage.destroy();
+      }
+
+      // Add new eye image
+      eyeImage = new Konva.Image({
+        image: newEyeImage,
+        x: 100, // Adjust as needed
+        y: 25,
+        name: "eye",
+      });
+
+      layer.add(eyeImage);
+      bringFrameToFront(); // If you use frame layering
+      layer.draw();
+    };
+  });
+});
+
+function bringFrameToFront() {
+  const oldFrame = layer.findOne(".frame");
+  if (oldFrame) oldFrame.destroy();
+
+  const frame = new Konva.Image({
+    image: frameImage,
+    x: 100,
+    y: 25,
+    name: "frame",
+    listening: false,
+  });
+  layer.add(frame);
+}
