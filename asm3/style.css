@@ -84,6 +84,8 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 25px;
+  gap: 10px;
+  padding: 10px;
 }
 
 #appearance-box {
@@ -102,8 +104,10 @@ body {
 
 #model-box,
 #clothes-box {
-  flex: 1 1 60%;
-  max-width: 60%;
+  width: 900px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
 }
 
 .option-box {
@@ -123,6 +127,12 @@ body {
   justify-content: space-around;
   transition: visibility 0s, opacity 0.3s ease;
   z-index: 100;
+  max-width: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: none;
 }
 
 .option-box {
