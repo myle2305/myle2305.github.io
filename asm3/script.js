@@ -213,39 +213,57 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
   skinOption.addEventListener("click", () => {
     const skinSrc = skinOption.getAttribute("data-src");
 
-    const newSkinImage = new Image();
-    newSkinImage.src = skinSrc;
+    // Save the very first skin as initial state
+    if (!initialSkinSrc) {
+      initialSkinSrc = skinSrc;
+    }
 
-    newSkinImage.onload = function () {
-      if (skinImage) {
-        skinImage.destroy();
-      }
-
-      skinImage = new Konva.Image({
-        image: newSkinImage,
-        x: 100,
-        y: 25,
-        name: "skin",
-      });
-      layer.add(skinImage);
-
-      const oldFrame = layer.findOne(".frame");
-      if (oldFrame) {
-        oldFrame.destroy();
-      }
-
-      const frame = new Konva.Image({
-        image: frameImage,
-        x: 100,
-        y: 25,
-        name: "frame",
-        listening: false,
-      });
-      layer.add(frame);
-
-      layer.draw();
-    };
+    changeSkin(skinSrc);
   });
+});
+
+function changeSkin(skinSrc) {
+  const newSkinImage = new Image();
+  newSkinImage.src = skinSrc;
+
+  newSkinImage.onload = function () {
+    if (skinImage) {
+      // Save current state before replacing
+      historyStack.push(skinImage.clone());
+      skinImage.destroy();
+    }
+
+    skinImage = new Konva.Image({
+      image: newSkinImage,
+      x: 100,
+      y: 25,
+      name: "skin",
+    });
+    layer.add(skinImage);
+
+    const oldFrame = layer.findOne(".frame");
+    if (oldFrame) {
+      oldFrame.destroy();
+    }
+
+    const frame = new Konva.Image({
+      image: frameImage,
+      x: 100,
+      y: 25,
+      name: "frame",
+      listening: false,
+    });
+    layer.add(frame);
+
+    layer.draw();
+  };
+}
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if (initialSkinSrc) {
+    historyStack.length = 0; // Clear undo history
+    changeSkin(initialSkinSrc);
+  }
 });
 
 let eyeImage = null;
@@ -275,6 +293,15 @@ document.querySelectorAll(".eye-option").forEach((eyeOption) => {
   });
 });
 
+document.querySelectorAll(".eye-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    saveHistory();
+    const imgSrc = option.getAttribute("data-src");
+    document.getElementById("skinLayer").src = imgSrc;
+    currentState.skin = imgSrc;
+  });
+});
+
 let lipImage = null;
 document.querySelectorAll("#lips-box .options").forEach((lipOption) => {
   lipOption.addEventListener("click", () => {
@@ -298,6 +325,15 @@ document.querySelectorAll("#lips-box .options").forEach((lipOption) => {
       bringFrameToFront();
       layer.draw();
     };
+  });
+});
+
+document.querySelectorAll(".lip-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    saveHistory();
+    const imgSrc = option.getAttribute("data-src");
+    document.getElementById("skinLayer").src = imgSrc;
+    currentState.skin = imgSrc;
   });
 });
 
@@ -327,6 +363,15 @@ document.querySelectorAll("#cheeks-box .options").forEach((cheekOption) => {
   });
 });
 
+document.querySelectorAll(".cheek-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    saveHistory();
+    const imgSrc = option.getAttribute("data-src");
+    document.getElementById("skinLayer").src = imgSrc;
+    currentState.skin = imgSrc;
+  });
+});
+
 let hairImage = null;
 document.querySelectorAll("#hair-box .options").forEach((hairOption) => {
   hairOption.addEventListener("click", () => {
@@ -352,9 +397,221 @@ document.querySelectorAll("#hair-box .options").forEach((hairOption) => {
   });
 });
 
+document.querySelectorAll(".hair-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    saveHistory();
+    const imgSrc = option.getAttribute("data-src");
+    document.getElementById("skinLayer").src = imgSrc;
+    currentState.skin = imgSrc;
+  });
+});
+
 function bringHairToFront() {
   if (hairImage) {
     hairImage.moveToTop();
     layer.draw();
   }
+}
+
+// Change clothes
+
+let topImage = null;
+document.querySelectorAll("#top-box .options").forEach((topOption) => {
+  topOption.addEventListener("click", () => {
+    const topSrc = topOption.getAttribute("data-src");
+    const newTopImage = new Image();
+    newTopImage.src = topSrc;
+
+    newTopImage.onload = function () {
+      if (topImage) {
+        topImage.destroy();
+      }
+
+      topImage = new Konva.Image({
+        image: newTopImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(topImage);
+      layer.draw();
+    };
+  });
+});
+
+let bottomImage = null;
+document.querySelectorAll("#bottom-box .options").forEach((bottomOption) => {
+  bottomOption.addEventListener("click", () => {
+    const bottomSrc = bottomOption.getAttribute("data-src");
+    const newBottomImage = new Image();
+    newBottomImage.src = bottomSrc;
+
+    newBottomImage.onload = function () {
+      if (bottomImage) {
+        bottomImage.destroy();
+      }
+
+      bottomImage = new Konva.Image({
+        image: newBottomImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(bottomImage);
+      layer.draw();
+    };
+  });
+});
+
+let skirtImage = null;
+document.querySelectorAll("#skirt-box .options").forEach((skirtOption) => {
+  skirtOption.addEventListener("click", () => {
+    const skirtSrc = skirtOption.getAttribute("data-src");
+    const newSkirtImage = new Image();
+    newSkirtImage.src = skirtSrc;
+
+    newSkirtImage.onload = function () {
+      if (skirtImage) {
+        skirtImage.destroy();
+      }
+
+      skirtImage = new Konva.Image({
+        image: newSkirtImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(skirtImage);
+      layer.draw();
+    };
+  });
+});
+
+let jacketImage = null;
+document.querySelectorAll("#jacket-box .options").forEach((jacketOption) => {
+  jacketOption.addEventListener("click", () => {
+    const jacketSrc = jacketOption.getAttribute("data-src");
+    const newJacketImage = new Image();
+    newJacketImage.src = jacketSrc;
+
+    newJacketImage.onload = function () {
+      if (jacketImage) {
+        jacketImage.destroy();
+      }
+
+      jacketImage = new Konva.Image({
+        image: newJacketImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(jacketImage);
+      layer.draw();
+    };
+  });
+});
+
+function bringJacketToFront() {
+  if (jacketImage) {
+    jacketImage.moveToTop();
+    layer.draw();
+  }
+}
+
+let socksImage = null;
+document.querySelectorAll("#socks-box .options").forEach((socksOption) => {
+  socksOption.addEventListener("click", () => {
+    const socksSrc = socksOption.getAttribute("data-src");
+    const newSocksImage = new Image();
+    newSocksImage.src = socksSrc;
+
+    newSocksImage.onload = function () {
+      if (socksImage) {
+        socksImage.destroy();
+      }
+
+      socksImage = new Konva.Image({
+        image: newSocksImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(socksImage);
+      socksImage.moveDown();
+      layer.draw();
+    };
+  });
+});
+
+let shoesImage = null;
+document.querySelectorAll("#shoes-box .options").forEach((shoesOption) => {
+  shoesOption.addEventListener("click", () => {
+    const shoesSrc = shoesOption.getAttribute("data-src");
+    const newShoesImage = new Image();
+    newShoesImage.src = shoesSrc;
+
+    newShoesImage.onload = function () {
+      if (shoesImage) {
+        shoesImage.destroy();
+      }
+
+      shoesImage = new Konva.Image({
+        image: newShoesImage,
+        x: 100,
+        y: 25,
+        name: "hair",
+      });
+
+      layer.add(shoesImage);
+      shoesImage.moveDown();
+      layer.draw();
+    };
+  });
+});
+
+// Undo
+const historyStack = [];
+let initialSkinSrc = null;
+
+// Wrap the skin change logic in a function
+function changeSkin(skinSrc) {
+  const newSkinImage = new Image();
+  newSkinImage.src = skinSrc;
+
+  newSkinImage.onload = function () {
+    if (skinImage) {
+      // Save current state before replacing
+      historyStack.push(skinImage.clone());
+      skinImage.destroy();
+    }
+
+    skinImage = new Konva.Image({
+      image: newSkinImage,
+      x: 100,
+      y: 25,
+      name: "skin",
+    });
+    layer.add(skinImage);
+
+    const oldFrame = layer.findOne(".frame");
+    if (oldFrame) {
+      oldFrame.destroy();
+    }
+
+    const frame = new Konva.Image({
+      image: frameImage,
+      x: 100,
+      y: 25,
+      name: "frame",
+      listening: false,
+    });
+    layer.add(frame);
+
+    layer.draw();
+  };
 }
