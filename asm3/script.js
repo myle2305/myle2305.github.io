@@ -107,74 +107,74 @@ hairBtn.addEventListener("click", () => {
 });
 
 // Toggle right bar
-// const topBtn = document.getElementById("topBtn");
-// const topBox = document.getElementById("top-box");
+const topBtn = document.getElementById("topBtn");
+const topBox = document.getElementById("top-box");
 
-// function hideAllAppearanceBox() {
-//   topBox.classList.add("hidden");
-//   bottomBox.classList.add("hidden");
-//   skirtBox.classList.add("hidden");
-//   jacketBox.classList.add("hidden");
-//   socksBox.classList.add("hidden");
-//   shoesBox.classList.add("hidden");
-// }
+function hideAllClothesBox() {
+  topBox.classList.add("hidden");
+  bottomBox.classList.add("hidden");
+  skirtBox.classList.add("hidden");
+  jacketBox.classList.add("hidden");
+  socksBox.classList.add("hidden");
+  shoesBox.classList.add("hidden");
+}
 
-// topBtn.addEventListener("click", () => {
-//   if (topBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   topBox.classList.toggle("hidden");
-// });
+topBtn.addEventListener("click", () => {
+  if (topBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  topBox.classList.toggle("hidden");
+});
 
-// const bottomBtn = document.getElementById("bottomBtn");
-// const bottomBox = document.getElementById("bottom-box");
+const bottomBtn = document.getElementById("bottomBtn");
+const bottomBox = document.getElementById("bottom-box");
 
-// bottomBtn.addEventListener("click", () => {
-//   if (bottomBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   bottomBox.classList.toggle("hidden");
-// });
+bottomBtn.addEventListener("click", () => {
+  if (bottomBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  bottomBox.classList.toggle("hidden");
+});
 
-// const skirtBtn = document.getElementById("skirtBtn");
-// const skirtBox = document.getElementById("skirt-box");
+const skirtBtn = document.getElementById("skirtBtn");
+const skirtBox = document.getElementById("skirt-box");
 
-// skirtBtn.addEventListener("click", () => {
-//   if (skirtBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   skirtBox.classList.toggle("hidden");
-// });
+skirtBtn.addEventListener("click", () => {
+  if (skirtBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  skirtBox.classList.toggle("hidden");
+});
 
-// const jacketBtn = document.getElementById("jacketBtn");
-// const jacketBox = document.getElementById("jacket-box");
+const jacketBtn = document.getElementById("jacketBtn");
+const jacketBox = document.getElementById("jacket-box");
 
-// jacketBtn.addEventListener("click", () => {
-//   if (jacketBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   jacketBox.classList.toggle("hidden");
-// });
+jacketBtn.addEventListener("click", () => {
+  if (jacketBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  jacketBox.classList.toggle("hidden");
+});
 
-// const socksBtn = document.getElementById("socksBtn");
-// const socksBox = document.getElementById("socks-box");
+const socksBtn = document.getElementById("socksBtn");
+const socksBox = document.getElementById("socks-box");
 
-// socksBtn.addEventListener("click", () => {
-//   if (socksBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   socksBox.classList.toggle("hidden");
-// });
+socksBtn.addEventListener("click", () => {
+  if (socksBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  socksBox.classList.toggle("hidden");
+});
 
-// const shoesBtn = document.getElementById("shoesBtn");
-// const shoesBox = document.getElementById("shoes-box");
+const shoesBtn = document.getElementById("shoesBtn");
+const shoesBox = document.getElementById("shoes-box");
 
-// shoesBtn.addEventListener("click", () => {
-//   if (shoesBox.classList.contains("hidden")) {
-//     hideAllAppearanceBox();
-//   }
-//   shoesBox.classList.toggle("hidden");
-// });
+shoesBtn.addEventListener("click", () => {
+  if (shoesBox.classList.contains("hidden")) {
+    hideAllClothesBox();
+  }
+  shoesBox.classList.toggle("hidden");
+});
 
 // Main
 const stage = new Konva.Stage({

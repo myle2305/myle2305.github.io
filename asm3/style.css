@@ -102,6 +102,34 @@ body {
   position: relative;
 }
 
+#appearance-box {
+  background-color: rgb(218, 218, 218);
+  height: 90%;
+  width: 60px;
+  margin: 15px;
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+
+#clothes-box {
+  background-color: rgb(218, 218, 218);
+  height: 90%;
+  width: 60px;
+  margin: 15px;
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+
 #appearance-option {
   background-color: black;
   height: 90%;
@@ -134,8 +162,25 @@ body {
 
 .option-box {
   position: absolute;
-  /* top: 92px; */
-  left: 200px;
+  left: 180px;
+  background-color: rgb(218, 218, 218);
+  height: 71%;
+  width: 50px;
+  margin: 15px;
+  border-style: inset;
+  border-color: rgb(142, 145, 146);
+  box-shadow: 5px 5px 5px rgb(50, 50, 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: visibility 0s, opacity 0.3s ease;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.option-box-right {
+  position: absolute;
+  right: 350px;
   background-color: rgb(218, 218, 218);
   height: 71%;
   width: 50px;
