@@ -213,7 +213,6 @@ document.querySelectorAll(".skin-option").forEach((skinOption) => {
   skinOption.addEventListener("click", () => {
     const skinSrc = skinOption.getAttribute("data-src");
 
-    // Save the very first skin as initial state
     if (!initialSkinSrc) {
       initialSkinSrc = skinSrc;
     }
@@ -228,7 +227,6 @@ function changeSkin(skinSrc) {
 
   newSkinImage.onload = function () {
     if (skinImage) {
-      // Save current state before replacing
       historyStack.push(skinImage.clone());
       skinImage.destroy();
     }
@@ -261,7 +259,7 @@ function changeSkin(skinSrc) {
 
 document.getElementById("resetBtn").addEventListener("click", () => {
   if (initialSkinSrc) {
-    historyStack.length = 0; // Clear undo history
+    historyStack.length = 0;
     changeSkin(initialSkinSrc);
   }
 });
@@ -575,18 +573,15 @@ document.querySelectorAll("#shoes-box .options").forEach((shoesOption) => {
 });
 
 // Reset
-// Undo
 const historyStack = [];
 let initialSkinSrc = null;
 
-// Wrap the skin change logic in a function
 function changeSkin(skinSrc) {
   const newSkinImage = new Image();
   newSkinImage.src = skinSrc;
 
   newSkinImage.onload = function () {
     if (skinImage) {
-      // Save current state before replacing
       historyStack.push(skinImage.clone());
       skinImage.destroy();
     }
