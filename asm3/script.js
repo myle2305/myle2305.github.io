@@ -257,21 +257,19 @@ document.querySelectorAll(".eye-option").forEach((eyeOption) => {
     newEyeImage.src = eyeSrc;
 
     newEyeImage.onload = function () {
-      // Remove the previous eye image
       if (eyeImage) {
         eyeImage.destroy();
       }
 
-      // Add new eye image
       eyeImage = new Konva.Image({
         image: newEyeImage,
-        x: 100, // Adjust as needed
+        x: 100,
         y: 25,
         name: "eye",
       });
 
       layer.add(eyeImage);
-      bringFrameToFront(); // If you use frame layering
+      bringFrameToFront();
       layer.draw();
     };
   });
