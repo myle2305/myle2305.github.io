@@ -574,6 +574,7 @@ document.querySelectorAll("#shoes-box .options").forEach((shoesOption) => {
   });
 });
 
+// Reset
 // Undo
 const historyStack = [];
 let initialSkinSrc = null;
