@@ -112,6 +112,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 20;
 }
 
 #appearance-box {
@@ -123,9 +124,25 @@ body {
   border-color: rgb(142, 145, 146);
   box-shadow: 5px 5px 5px rgb(50, 50, 50);
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   position: relative;
+}
+
+.appearance-option-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#model-box,
+#clothes-box {
+  width: 700px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
 }
 
 #clothes-box {
@@ -137,27 +154,11 @@ body {
   border-color: rgb(142, 145, 146);
   box-shadow: 5px 5px 5px rgb(50, 50, 50);
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   position: relative;
-}
-
-.appearance-option-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.clothes-option {
-  background-color: #ffccf9;
-}
-
-#model-box,
-#clothes-box {
-  width: 700px;
-  height: 500px;
-  position: relative;
-  overflow: hidden;
 }
 
 .option-box {
@@ -176,11 +177,12 @@ body {
   transition: visibility 0s, opacity 0.3s ease;
   overflow-y: auto;
   padding: 5px;
+  flex-grow: 1;
 }
 
 .option-box-right {
   position: absolute;
-  right: 350px;
+  right: 400px;
   background-color: rgb(218, 218, 218);
   height: 71%;
   width: 50px;
@@ -195,6 +197,7 @@ body {
   overflow-y: auto;
   padding: 5px;
   z-index: 2;
+  flex-grow: 1;
 }
 
 .hidden {
@@ -214,18 +217,6 @@ body {
 
 #frameLayer {
   display: none;
-}
-
-#clothes-box {
-  background-color: rgb(218, 218, 218);
-  height: 90%;
-  width: 60px;
-  margin: 15px;
-  border-style: inset;
-  border-color: rgb(142, 145, 146);
-  box-shadow: 5px 5px 5px rgb(50, 50, 50);
-  display: flex;
-  flex-direction: column;
 }
 
 .tabs {
