@@ -11,7 +11,13 @@ footer {
   font-style: normal;
   font-size: 1rem;
   color: rgb(46, 46, 46);
+  grid-column: 1 / span 3;
+  grid-row: 3 / span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 a {
   color: blueviolet;
 }
@@ -100,6 +106,12 @@ body {
   flex-direction: row;
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
+}
+
+#model-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #appearance-box {
@@ -292,12 +304,4 @@ body {
 .tabs-button:active {
   box-shadow: none;
   transition: 0.4s ease;
-}
-
-footer {
-  grid-column: 1 / span 3;
-  grid-row: 3 / span 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
