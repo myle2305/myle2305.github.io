@@ -611,3 +611,11 @@ function changeSkin(skinSrc) {
     layer.draw();
   };
 }
+
+document.getElementById("checkBtn").addEventListener("click", function () {
+  const dataURL = stage.toDataURL({ pixelRatio: 2 });
+  const link = document.createElement("a");
+  link.download = "lookmeup.png";
+  link.href = dataURL;
+  link.click();
+});
