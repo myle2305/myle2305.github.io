@@ -30,6 +30,98 @@ soundButton.addEventListener("click", () => {
   soundButton.textContent = isMuted ? "🔇" : "🔈";
 });
 
+// Sound after items applied
+const snapSynth = new Tone.MembraneSynth({
+  pitchDecay: 0.05,
+  octaves: 3,
+  envelope: {
+    attack: 0.001,
+    decay: 0.2,
+    sustain: 0,
+    release: 0.1,
+  },
+  volume: -10,
+}).toDestination();
+
+document.querySelectorAll(".skin-option").forEach((skinOption) => {
+  skinOption.addEventListener("click", () => {
+    const skinSrc = skinOption.getAttribute("data-src");
+    changeSkin(skinSrc);
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".eye-option").forEach((eyeOption) => {
+  eyeOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".lip-option").forEach((lipOption) => {
+  lipOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".cheeks-option").forEach((cheeksOption) => {
+  cheeksOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".hair-option").forEach((hairOption) => {
+  hairOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".top-option").forEach((topOption) => {
+  topOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".bottom-option").forEach((bottomOption) => {
+  bottomOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".skirt-option").forEach((skirtOption) => {
+  skirtOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".jacket-option").forEach((jacketOption) => {
+  jacketOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".socks-option").forEach((socksOption) => {
+  socksOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+document.querySelectorAll(".shoes-option").forEach((shoesOption) => {
+  shoesOption.addEventListener("click", () => {
+    playSnapSound();
+  });
+});
+
+function playSnapSound() {
+  if (!audioStarted) {
+    Tone.start().then(() => {
+      audioStarted = true;
+      snapSynth.triggerAttackRelease("C5", "16n");
+    });
+  } else {
+    snapSynth.triggerAttackRelease("C5", "16n");
+  }
+}
+
 // background sound
 const ambientPlayer = new Tone.Player(
   "You Know Me - Jeremy Black.mp3"
