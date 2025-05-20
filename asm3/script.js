@@ -571,6 +571,7 @@ document.querySelectorAll("#bottom-box .options").forEach((bottomOption) => {
       });
 
       layer.add(bottomImage);
+      bottomImage.moveAbove(socksImage);
       layer.draw();
     };
   });
@@ -679,47 +680,47 @@ document.querySelectorAll("#shoes-box .options").forEach((shoesOption) => {
       });
 
       layer.add(shoesImage);
-      shoesImage.moveDown();
+      shoesImage.moveAbove(socksImage);
       layer.draw();
     };
   });
 });
 
 // Reset
-// let initialSkinSrc = null;
+let initialSkinSrc = null;
 
-// const download = document.getElementById("download");
-// download.addEventListener("click", () => {
-//   let canvas = layer.canvas._canvas;
-//   let lnk = document.createElement("a"),
-//     e;
-//   lnk.download = "download.png";
-//   lnk.href = canvas.toDataURL("image/png;base64");
-//   if (document.createEvent) {
-//     e = document.createEvent("MouseEvents");
-//     e.initMouseEvent(
-//       "click",
-//       true,
-//       true,
-//       window,
-//       0,
-//       0,
-//       0,
-//       0,
-//       0,
-//       false,
-//       false,
-//       false,
-//       false,
-//       0,
-//       null
-//     );
+const download = document.getElementById("download");
+download.addEventListener("click", () => {
+  let canvas = layer.canvas._canvas;
+  let lnk = document.createElement("a"),
+    e;
+  lnk.download = "download.png";
+  lnk.href = canvas.toDataURL("image/png;base64");
+  if (document.createEvent) {
+    e = document.createEvent("MouseEvents");
+    e.initMouseEvent(
+      "click",
+      true,
+      true,
+      window,
+      0,
+      0,
+      0,
+      0,
+      0,
+      false,
+      false,
+      false,
+      false,
+      0,
+      null
+    );
 
-//     lnk.dispatchEvent(e);
-//   } else if (lnk.fireEvent) {
-//     lnk.fireEvent("onclick");
-//   }
-// });
+    lnk.dispatchEvent(e);
+  } else if (lnk.fireEvent) {
+    lnk.fireEvent("onclick");
+  }
+});
 
 // Download Image
 document.getElementById("checkBtn").addEventListener("click", () => {
