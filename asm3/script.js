@@ -208,7 +208,7 @@ for (let i = 0; i < allClothesBox.length; i++) {
 // Main
 const stage = new Konva.Stage({
   container: "model-box",
-  width: 700,
+  width: 600,
   height: 500,
 });
 
