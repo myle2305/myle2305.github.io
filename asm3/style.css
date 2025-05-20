@@ -142,18 +142,6 @@ body {
   position: relative;
 }
 
-#appearance-option {
-  background-color: black;
-  height: 90%;
-  width: 60px;
-  border-style: inset;
-  border-color: rgb(142, 145, 146);
-  box-shadow: 5px 5px 5px rgb(50, 50, 50);
-  top: 78px;
-  left: 200px;
-  background-color: rgb(218, 218, 218);
-}
-
 .appearance-option-container {
   display: flex;
   flex-direction: column;
@@ -192,7 +180,7 @@ body {
 
 .option-box-right {
   position: absolute;
-  right: 350px;
+  right: 320px;
   background-color: rgb(218, 218, 218);
   height: 71%;
   width: 50px;
