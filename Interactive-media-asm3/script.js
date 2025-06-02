@@ -1,7 +1,7 @@
 const stage = new Konva.Stage({
   container: "game-container",
-  width: 900,
-  height: 900,
+  width: 600,
+  height: 600,
   x: 100,
   y: 100,
 });
