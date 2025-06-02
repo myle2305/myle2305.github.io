@@ -1,7 +1,7 @@
 const stage = new Konva.Stage({
   container: "game-container",
   width: 900,
-  height: 800,
+  height: 900,
   x: 100,
   y: 100,
 });
@@ -19,7 +19,7 @@ const land = new Konva.Image({
   width: 100,
   height: 100,
   offsetX: 60,
-  offsetY: 65,
+  offsetY: 60,
 });
 land.scale({ x: 10, y: 10 });
 layer.add(land);
