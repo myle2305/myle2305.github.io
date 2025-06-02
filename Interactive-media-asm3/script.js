@@ -21,5 +21,5 @@ const land = new Konva.Image({
   offsetX: 60,
   offsetY: 60,
 });
-land.scale({ x: 8, y: 8 });
+land.scale({ x: 4, y: 4 });
 layer.add(land);
