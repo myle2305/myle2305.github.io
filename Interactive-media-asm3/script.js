@@ -18,8 +18,8 @@ const land = new Konva.Image({
   y: stage.height() / 2,
   width: 100,
   height: 100,
-  offsetX: 60,
-  offsetY: 60,
+  offsetX: 80,
+  offsetY: 80,
 });
 land.scale({ x: 4, y: 4 });
 layer.add(land);
