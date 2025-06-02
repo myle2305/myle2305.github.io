@@ -19,7 +19,7 @@ const land = new Konva.Image({
   width: 100,
   height: 100,
   offsetX: 50,
-  offsetY: 80,
+  offsetY: 70,
 });
-land.scale({ x: 8, y: 8 });
+land.scale({ x: 10, y: 10 });
 layer.add(land);
