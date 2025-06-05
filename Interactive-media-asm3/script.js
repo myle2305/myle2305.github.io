@@ -60,6 +60,8 @@ cornIcon.addEventListener("dragstart", function (event) {
 });
 
 riceIcon.addEventListener("dragend", function (event) {
+  isReadyToSow = false;
+  changeHint();
   const konvaContent = document.getElementsByClassName("konvajs-content")[0];
   let startX =
     konvaContent.getBoundingClientRect().left +
@@ -84,16 +86,94 @@ riceIcon.addEventListener("dragend", function (event) {
         changeCropLayer("assets/rice3.png");
         setTimeout(() => {
           changeCropLayer("assets/rice4.png");
-        }, 3000);
+          isReadyToHarvest = true;
+          changeHint();
+        }, 2000);
+      }, 2000);
+    }, 2000);
+    cropType = "rice";
+  }
+});
+
+cornIcon.addEventListener("dragend", function (event) {
+  isReadyToSow = false;
+  changeHint();
+  const konvaContent = document.getElementsByClassName("konvajs-content")[0];
+  let startX =
+    konvaContent.getBoundingClientRect().left +
+    stage.width() / 2 -
+    landSize / 2;
+  let startY =
+    konvaContent.getBoundingClientRect().top +
+    stage.height() / 2 -
+    landSize / 2;
+  let endX = startX + landSize;
+  let endY = startY + landSize;
+  changeCropLayer("assets/corn1.png");
+  if (
+    event.x >= startX &&
+    event.x <= endX &&
+    event.y >= startY &&
+    event.y <= endY
+  ) {
+    setTimeout(() => {
+      changeCropLayer("assets/corn2.png");
+      setTimeout(() => {
+        changeCropLayer("assets/corn3.png");
+        setTimeout(() => {
+          changeCropLayer("assets/corn4.png");
+          isReadyToHarvest = true;
+          changeHint();
+        }, 2000);
       }, 3000);
     }, 3000);
-    cropType = "rice";
+    cropType = "corn";
+  }
+});
+
+potatoIcon.addEventListener("dragend", function (event) {
+  isReadyToSow = false;
+  changeHint();
+  const konvaContent = document.getElementsByClassName("konvajs-content")[0];
+  let startX =
+    konvaContent.getBoundingClientRect().left +
+    stage.width() / 2 -
+    landSize / 2;
+  let startY =
+    konvaContent.getBoundingClientRect().top +
+    stage.height() / 2 -
+    landSize / 2;
+  let endX = startX + landSize;
+  let endY = startY + landSize;
+  changeCropLayer("assets/potato1.png");
+  if (
+    event.x >= startX &&
+    event.x <= endX &&
+    event.y >= startY &&
+    event.y <= endY
+  ) {
+    setTimeout(() => {
+      changeCropLayer("assets/potato2.png");
+      setTimeout(() => {
+        changeCropLayer("assets/potato3.png");
+        setTimeout(() => {
+          changeCropLayer("assets/potato4.png");
+          isReadyToHarvest = true;
+          changeHint();
+        }, 2000);
+      }, 2000);
+    }, 2000);
+    cropType = "potato";
   }
 });
 
 function changeCropLayer(name) {
   if (layerCrop != null) {
     layerCrop.destroy();
+    layerCrop = null;
+  }
+  if (name === "") {
+    return;
   }
   const cropImg = new Image();
   cropImg.src = name;
@@ -107,7 +187,9 @@ function changeCropLayer(name) {
   layer.add(layerCrop);
 }
 
-document.getElementById("knife-button").addEventListener("dragend", (event) => {
+document.getElementById("knife-icon").addEventListener("dragend", (event) => {
+  isReadyToHarvest = false;
+  changeHint();
   const konvaContent = document.getElementsByClassName("konvajs-content")[0];
   let startX =
     konvaContent.getBoundingClientRect().left +
@@ -128,5 +210,65 @@ document.getElementById("knife-button").addEventListener("dragend", (event) => {
     if (cropType == "rice") {
       changeCropLayer("assets/rice5.png");
     }
+    if (cropType == "corn") {
+      changeCropLayer("assets/corn5.png");
+    }
+    if (cropType == "potato") {
+      changeCropLayer("assets/potato5.png");
+    }
+    setTimeout(() => {
+      changeCropLayer("");
+      isReadyToSow = true;
+      changeHint();
+    }, 2000);
   }
 });
+
+let isReadyToSow = true;
+let isReadyToHarvest = false;
+let sowIntervalId = 0;
+let harvestIntervalId = 0;
+
+function changeHint() {
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  const riceIcon = document.getElementById("rice-icon");
+  const cornIcon = document.getElementById("corn-icon");
+  const potatoIcon = document.getElementById("potato-icon");
+  const knifeIcon = document.getElementById("knife-icon");
+  if (isReadyToSow == true) {
+    step1.style.display = "";
+    sowIntervalId = setInterval(() => {
+      if (riceIcon.style.scale == 1) {
+        riceIcon.style.scale = 1.05;
+        cornIcon.style.scale = 1.05;
+        potatoIcon.style.scale = 1.05;
+      } else {
+        riceIcon.style.scale = 1;
+        cornIcon.style.scale = 1;
+        potatoIcon.style.scale = 1;
+      }
+    }, 500);
+  } else {
+    clearInterval(sowIntervalId);
+    riceIcon.style.scale = 1;
+    cornIcon.style.scale = 1;
+    potatoIcon.style.scale = 1;
+    step1.style.display = "none";
+  }
+  if (isReadyToHarvest == true) {
+    step2.style.display = "";
+    harvestIntervalId = setInterval(() => {
+      if (knifeIcon.style.scale == 1) {
+        knifeIcon.style.scale = 1.05;
+      } else {
+        knifeIcon.style.scale = 1;
+      }
+    }, 500);
+  } else {
+    clearInterval(harvestIntervalId);
+    knifeIcon.style.scale = 1;
+    step2.style.display = "none";
+  }
+}
+changeHint();

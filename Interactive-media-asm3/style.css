@@ -6,6 +6,12 @@ body {
   background: #88cb6e;
   font-family: sans-serif;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -28,6 +34,7 @@ body {
   width: 200px;
   height: 200px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
@@ -67,4 +74,9 @@ button:hover {
   60% {
     translate: 0px -1px;
   }
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
 }

@@ -403,4 +403,10 @@ document.getElementById("download").addEventListener("click", () => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-});
+}); // background music
+// Create Tone.Player and loop it
+export const bgMusic = new Tone.Player({
+  url: "backgroundMusic.mp3", // replace with your file
+  loop: true,
+  autostart: false,
+}).toDestination();
