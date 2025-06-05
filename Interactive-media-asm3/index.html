@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <title>Grow & Harvest</title>
@@ -8,39 +7,39 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/konva@9.0.0/konva.min.js"></script>
     <script src="script.js" defer></script>
 </head>
-
 <body>
-    <div class="container">
-        <div class="seeds-container">
-            <button id="rice-button">
-                <img width="222px" height="172px" id="rice-icon" draggable="true" src="assets/rice-button.png" />
-            </button>
+    <div class="container">    <div class="seeds-container">
+        <button id="rice-button">
+            <img width="222px" height="172px" id="rice-icon" draggable="true" src="assets/rice-button.png" />
+        </button>
             <button id="potato-button">
-                <img id="potato-icon" width="222px" height="172px" draggable="true" src="assets/potato-button.png" />
-            </button>
-            <button id="corn-button">
-                <img id="corn-icon" draggable="true" width="222px" height="172px" src="assets/corn-button.png" />
-            </button>
-        </div>
-        <div id="game-container"></div>
-        <div class="knife-container">
-            <button id="knife-button">
-                <img id="knife-icon" draggable="true" width="222px" height="172px" src="assets/knife-button.png" />
-            </button>
-        </div>
+            <img id="potato-icon" width="222px" height="172px" draggable="true" src="assets/potato-button.png" />
+        </button>
+        <button id="corn-button">
+            <img id="corn-icon" draggable="true" width="222px" height="172px" src="assets/corn-button.png" />
+        </button>
     </div>
-    <img id="rice-ghost" src="assets/rice-icon.png" width="222px" height="172px" style="display: none;" />
-    <img id="potato-ghost" src="assets/potato-icon.png" width="222px" height="172px" style="display: none;" />
-    <img id="corn-ghost" src="assets/corn-icon.png" width="222px" height="172px" style="display: none;" />
+    <div id="game-container"></div>
+    <div class="knife-container">
+        <button id="knife-button">
+            <img id="knife-icon" draggable="true" width="222px" height="172px" src="assets/knife-button.png" />
+        </button>
+    </div>
+    </div>
+    <img id="rice-ghost" src="assets/rice-icon.png" width="222px" height="172px" style="display: none;" /> 
+    <img id="potato-ghost" src="assets/potato-icon.png" width="222px" height="172px" style="display: none;" /> 
+    <img id="corn-ghost" src="assets/corn-icon.png" width="222px" height="172px" style="display: none;" /> 
     <img id="knife-ghost" src="assets/knife-icon.png" width="222px" height="172px" style="display: none;" /> </div>
-    <div class="instruction">
-        <p id="step1">Drag seeds to grow</p>
-        <p id="step2" style="display: none;"> Drag knife to harvest </p>
+    <div class ="instruction">
+        <p id="step1">Drag seeds to grow ^^</p>
+        <p id="step2" style="display: none;" > Drag knife to harvest!!! </p>
     </div>
 </body>
-
 </html>

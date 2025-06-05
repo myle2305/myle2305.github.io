@@ -59,6 +59,18 @@ cornIcon.addEventListener("dragstart", function (event) {
   }, 0);
 });
 
+const knifeIcon = document.getElementById("knife-icon");
+
+knifeIcon.addEventListener("dragstart", function (event) {
+  const ghost = document.getElementById("knife-ghost");
+  ghost.style.display = "";
+
+  event.dataTransfer.setDragImage(ghost, 50, 50);
+  setTimeout(() => {
+    ghost.style.display = "none";
+  }, 0);
+});
+
 riceIcon.addEventListener("dragend", function (event) {
   isReadyToSow = false;
   changeHint();

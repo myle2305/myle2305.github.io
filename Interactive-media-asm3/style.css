@@ -80,3 +80,13 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
+
+p {
+  font-family: "Edu QLD Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(255, 255, 151);
+}
