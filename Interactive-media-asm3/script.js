@@ -102,13 +102,13 @@ riceIcon.addEventListener("dragend", function (event) {
   let endY = startY + landSize;
 
   // Growing crops logic
-  changeCropLayer("assets/rice1.png");
   if (
     event.x >= startX &&
     event.x <= endX &&
     event.y >= startY &&
     event.y <= endY
   ) {
+    changeCropLayer("assets/rice1.png");
     // Crops growth animation: images change to simulate growing crop
     setTimeout(() => {
       changeCropLayer("assets/rice2.png");
@@ -141,13 +141,13 @@ cornIcon.addEventListener("dragend", function (event) {
     landSize / 2;
   let endX = startX + landSize;
   let endY = startY + landSize;
-  changeCropLayer("assets/corn1.png");
   if (
     event.x >= startX &&
     event.x <= endX &&
     event.y >= startY &&
     event.y <= endY
   ) {
+    changeCropLayer("assets/corn1.png");
     setTimeout(() => {
       changeCropLayer("assets/corn2.png");
       setTimeout(() => {
@@ -177,13 +177,13 @@ potatoIcon.addEventListener("dragend", function (event) {
     landSize / 2;
   let endX = startX + landSize;
   let endY = startY + landSize;
-  changeCropLayer("assets/potato1.png");
   if (
     event.x >= startX &&
     event.x <= endX &&
     event.y >= startY &&
     event.y <= endY
   ) {
+    changeCropLayer("assets/potato1.png");
     setTimeout(() => {
       changeCropLayer("assets/potato2.png");
       setTimeout(() => {
@@ -275,9 +275,16 @@ function changeHint() {
   const cornIcon = document.getElementById("corn-icon");
   const potatoIcon = document.getElementById("potato-icon");
   const knifeIcon = document.getElementById("knife-icon");
+  riceIcon.draggable = false;
+  cornIcon.draggable = false;
+  potatoIcon.draggable = false;
+  knifeIcon.draggable = false;
   // Blinking animation logic
   if (isReadyToSow == true) {
     step1.style.display = "";
+    riceIcon.draggable = true;
+    cornIcon.draggable = true;
+    potatoIcon.draggable = true;
     sowIntervalId = setInterval(() => {
       if (riceIcon.style.scale == 1) {
         riceIcon.style.scale = 1.05;
@@ -298,6 +305,7 @@ function changeHint() {
   }
   if (isReadyToHarvest == true) {
     step2.style.display = "";
+    knifeIcon.draggable = true;
     harvestIntervalId = setInterval(() => {
       // the knife button after the crop is ready to harvest attracts the user's attention as well as guides the user to the next action
       if (knifeIcon.style.scale == 1) {
