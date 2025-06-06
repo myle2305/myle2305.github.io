@@ -275,7 +275,7 @@ function changeHint() {
   const cornIcon = document.getElementById("corn-icon");
   const potatoIcon = document.getElementById("potato-icon");
   const knifeIcon = document.getElementById("knife-icon");
-  riceIcon.draggable = false;
+  riceIcon.draggable = false; // disable all other icons when there is a crop growing to avoid overlap
   cornIcon.draggable = false;
   potatoIcon.draggable = false;
   knifeIcon.draggable = false;
