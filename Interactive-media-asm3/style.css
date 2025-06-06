@@ -6,14 +6,14 @@ body {
   background: #88cb6e;
   font-family: sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* to adjust the position of the main container and the instructions vertically */
   justify-content: space-between;
 }
 
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; /* to adjust the position of the Ui icons and konvajs horizontally */
 }
 
 .seeds-container {
@@ -21,10 +21,9 @@ body {
   height: 200px;
   display: flex;
   justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: column; /* the Ui icons are arranged vertically to provide simplicity and organization making the game interface user-friendly and easy to manipulate. */
   align-items: center;
   flex-grow: 1;
-  animation-name: bounce;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -35,7 +34,7 @@ body {
   height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-end; /* the knife should be separate from the seed buttons. */
   align-items: center;
   flex-grow: 1;
 }
@@ -53,27 +52,11 @@ button:hover {
 
 #game-container {
   width: 1000px;
-  height: 800px;
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 4;
-}
-
-@keyframes bounce {
-  0%,
-  25%,
-  50%,
-  80%,
-  100% {
-    translate: 0px 1px;
-  }
-  40% {
-    translate: 0px -2px;
-  }
-  60% {
-    translate: 0px -1px;
-  }
 }
 
 .instruction {
