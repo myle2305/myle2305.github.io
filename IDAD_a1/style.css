@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jersey+15&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  background-color: black;
+  margin: 50px;
+  align-items: center;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1 {
+  color: antiquewhite;
+  font-size: 4rem;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h3 {
+  color: antiquewhite;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+h4 {
+  font-size: 1.7rem;
+}
+
+.Justine {
+  color: rgb(168, 45, 255);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Justine:hover {
+  text-decoration: underline;
+  color: rgb(74, 8, 121);
+  transition: 0.3s ease;
+}
+
+.Justine:active {
+  color: rgb(248, 255, 40);
+  transition: 0.3s ease;
+}
+
+.MaS {
+  color: rgb(248, 255, 40);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.MaS:hover {
+  color: rgb(150, 155, 9);
+  transition: 0.3s ease;
+  text-decoration: underline;
+}
+
+.MaS:active {
+  color: rgb(168, 45, 255);
+  transition: 0.3s ease;
+}
+
+.cover {
+  height: 100vh;
+  width: 60vw;
+}
+
+.Container {
+  display: grid;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0px;
+}
+
+.Seven-poems {
+  background-color: rgb(248, 255, 40);
+  color: rgb(74, 8, 121);
+  font-size: 1rem;
+  width: 500px;
+  height: 400px;
+  grid-column: 1 / span 1;
+  gap: 0px;
+  border-radius: 20px;
+  margin: 50px;
+  padding: 30px;
+  text-align: center;
+}
+
+.Seven-poems:hover {
+  background-color: rgb(168, 45, 255);
+  color: rgb(248, 255, 40);
+  transition: 1.2s ease;
+}
+
+.Liquid-entrophy {
+  background-color: rgb(168, 45, 255);
+  color: rgb(249, 255, 62);
+  font-size: 1.2rem;
+  width: 500px;
+  height: 400px;
+  grid-column: 2 / span 1;
+  border-radius: 20px;
+  margin: 50px;
+  padding: 30px;
+  text-align: center;
+}
+
+.Liquid-entrophy:hover {
+  background-color: rgb(248, 255, 40);
+  color: rgb(74, 8, 121);
+  transition: 1.2s ease;
+}
+
+.Conclusion {
+  color: antiquewhite;
+  font-size: 1.3rem;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+  margin: 50px;
+  padding: 20px;
+}
+
+p {
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.conclusion-cont {
+  width: 800px;
+  color: antiquewhite;
+  margin-left: 300px;
+  margin-top: 100px;
+}
