@@ -1,7 +1,7 @@
 const stage = new Konva.Stage({
   container: "model-box",
-  width: 500,
-  height: 400,
+  width: 900,
+  height: 500,
 });
 
 const layer = new Konva.Layer();
@@ -12,8 +12,9 @@ baseModel.src = "model/base.PNG";
 baseModel.onload = function () {
   const model = new Konva.Image({
     image: baseModel,
-    x: 0,
-    y: 0,
+    x: 100,
+    y: 25,
+    draggable: true,
   });
   layer.add(model);
   layer.draw();
@@ -40,7 +41,7 @@ const appearanceList = [
   "skin1.PNG",
   "skin2.PNG",
   "skin3.PNG",
-  "Skin4.PNG",
+  "skin4.PNG",
 ];
 
 appearanceList.forEach((file) => {
@@ -49,9 +50,70 @@ appearanceList.forEach((file) => {
   img.onload = function () {
     const appearance = new Konva.Image({
       image: img,
+      x: 100,
+      y: 25,
       draggable: true,
     });
     layer.add(appearance);
     layer.draw();
   };
+});
+
+// tab visibility
+function toggleVisibility() {
+  var leftTab = document.getElementById("appearance-box");
+  if (leftTab.style.visibility === "hidden") {
+    leftTab.style.visibility = "visible";
+  } else {
+    leftTab.style.visibility = "hidden";
+  }
+}
+
+// Tone js
+const bubbleSynth = new Tone.MembraneSynth().toDestination();
+
+let audioStarted = false;
+
+function playBubbleSound() {
+  if (!audioStarted) {
+    Tone.start().then(() => {
+      audioStarted = true;
+      bubbleSynth.triggerAttackRelease("C6", "8n");
+    });
+  } else {
+    bubbleSynth.triggerAttackRelease("C6", "8n");
+  }
+}
+
+// Play bubble sound on any button click
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", playBubbleSound);
+});
+
+let isMuted = false;
+
+const soundButton = document.getElementById("sound-on");
+
+soundButton.addEventListener("click", () => {
+  isMuted = !isMuted;
+  Tone.Destination.mute = isMuted;
+
+  soundButton.textContent = isMuted ? "🔇" : "🔈";
+});
+
+// background sound
+const ambientPlayer = new Tone.Player(
+  "You Know Me - Jeremy Black.mp3"
+).toDestination();
+ambientPlayer.loop = true;
+
+const startBtn = document.getElementById("start-button");
+const startScreen = document.getElementById("start-screen");
+const mainGame = document.getElementsByClassName("container");
+
+startBtn.addEventListener("click", async () => {
+  await Tone.start();
+  ambientPlayer.start();
+  startScreen.style.display = "none";
+  mainGame.style.display = "block";
 });

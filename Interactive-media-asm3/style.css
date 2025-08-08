@@ -1,0 +1,75 @@
+body {
+  margin: 15px;
+  width: 100vw;
+  height: 100%;
+  text-align: center;
+  background: #88cb6e;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column; /* to adjust the position of the main container and the instructions vertically */
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* to adjust the position of the Ui icons and konvajs horizontally */
+}
+
+.seeds-container {
+  width: 140px;
+  height: 200px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column; /* the Ui icons are arranged vertically to provide simplicity and organization making the game interface user-friendly and easy to manipulate. */
+  align-items: center;
+  flex-grow: 1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.knife-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* the knife should be separate from the seed buttons. */
+  align-items: center;
+  flex-grow: 1;
+}
+
+button {
+  background-color: #88cb6e;
+  border-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  transition: 0.3s ease;
+}
+
+#game-container {
+  width: 1000px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 4;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-family: "Edu QLD Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(255, 255, 151);
+}

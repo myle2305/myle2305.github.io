@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Grow & Harvest</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/konva@9.0.0/konva.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">  <!-- create a container to contain all UI icons and canvas -->
+        <div class="seeds-container">
+        <button id="rice-button">
+            <img width="222px" height="172px" id="rice-icon" draggable="true" src="assets/rice-button.png" />
+        </button>
+            <button id="potato-button">
+            <img id="potato-icon" width="222px" height="172px" draggable="true" src="assets/potato-button.png" />
+        </button>
+        <button id="corn-button">
+            <img id="corn-icon" draggable="true" width="222px" height="172px" src="assets/corn-button.png" />
+        </button>
+    </div>
+    <div id="game-container"></div> <!-- contains the canvas -->
+    <div class="knife-container">
+        <button id="knife-button">
+            <img id="knife-icon" draggable="true" width="222px" height="172px" src="assets/knife-button.png" />
+        </button>
+    </div>
+    </div>
+    <img id="rice-ghost" src="assets/rice-icon.png" width="222px" height="172px" style="display: none;" /> 
+    <img id="potato-ghost" src="assets/potato-icon.png" width="222px" height="172px" style="display: none;" /> 
+    <img id="corn-ghost" src="assets/corn-icon.png" width="222px" height="172px" style="display: none;" /> 
+    <img id="knife-ghost" src="assets/knife-icon.png" width="222px" height="172px" style="display: none;" /> </div>
+    <div class ="instruction">
+        <p id="step1">Drag seeds to grow ^^</p>
+        <p id="step2" style="display: none;" > Drag knife to harvest!!! </p>
+    </div>
+</body>
+</html>
+<!-- All UI icons and assets are hand-drawn by me using Procreate. -->
+<!-- Potential benefits:
+   - This drag and drop action can be used to create a small game with the purpose of educating children about agriculture, and can also incorporate knowledge about seeds, characteristics of plants and the growing characteristics of each type. 
+   - Background music, interactive sound, adding timers, scores, or inventory mechanics can be added so that users can explore this game in a vivid and interesting way. 
+   - It could be integrated into a larger farming simulation app with weather, seasons, and recipes.
+   - Styled for touch-based interactions, making it suitable for tablets or kids’s games. -->
+<!-- Challenges reflection:
+    One mistake I made when drawing assets and arranging layers was that I should have continued drawing on the previous layer instead of drawing each layer separately. This made the layer changes look fake and not smooth. Stacking layers on top of each other gives the feeling that they are actually growing and there is no jerkiness when switching between layers. -->

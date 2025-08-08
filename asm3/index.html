@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Look Me Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+    <script src="https://unpkg.com/tone/build/Tone.js"></script>
+  </head>
+  <body>
+    <div id="start-screen">
+      <h1>LOOK ME UP</h1>
+      <button id="start-button">Start</button>
+    </div>
+    <div class="container">
+      <div id="appearance-box">
+        <button id="skinBtn" class="items-button">
+          <img src="model/skin-icon.png" />
+        </button>
+        <button id="eyeBtn" class="items-button">
+          <img src="model/eyes-icon.PNG" />
+        </button>
+        <button id="lipBtn" class="items-button">
+          <img src="model/lips-icon.PNG" />
+        </button>
+        <button id="cheekBtn" class="items-button">
+          <img src="model/cheeks-icon.PNG" />
+        </button>
+        <button id="hairBtn" class="items-button">
+          <img src="model/hair-icon.PNG" />
+        </button>
+      </div>
+      <div id="skin-box" class="option-box hidden">
+        <img
+          class="skin-option options"
+          data-src="model/skin1.PNG"
+          src="model/skin1.PNG"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin2.PNG"
+          src="model/skin2.PNG"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin3.PNG"
+          src="model/skin3.PNG"
+        />
+        <img
+          class="skin-option options"
+          data-src="model/skin4.PNG"
+          src="model/skin4.PNG"
+        />
+      </div>
+      <div id="eyes-box" class="option-box hidden">
+        <img
+          class="eye-option options"
+          data-src="model/eyes1.png"
+          src="model/eye1-icon.PNG"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes2.PNG"
+          src="model/eyes2-icon.png"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes3.PNG"
+          src="model/eyes3-icon.png"
+        />
+        <img
+          class="eye-option options"
+          data-src="model/eyes4.PNG"
+          src="model/eyes4-icon.png"
+        />
+      </div>
+      <div id="lips-box" class="option-box hidden">
+        <img
+          class="lip-option options"
+          data-src="model/lips1.PNG"
+          src="model/lips1-icon.PNG"
+        />
+        <img
+          class="lip-option options"
+          data-src="model/lips2.PNG"
+          src="model/lips2-icon.PNG"
+        />
+        <img
+          class="lip-option options"
+          data-src="model/lips3.PNG"
+          src="model/lips3-icon.PNG"
+        />
+        <img
+          class="lip-option options"
+          data-src="model/lips4.PNG"
+          src="model/lips4-icon.PNG"
+        />
+      </div>
+      <div id="cheeks-box" class="option-box hidden">
+        <img
+          class="cheeks-option options"
+          data-src="model/cheeks1.PNG"
+          src="model/cheeks1-icon.PNG"
+        />
+        <img
+          class="cheeks-option options"
+          data-src="model/cheeks2.PNG"
+          src="model/cheeks2-icon.PNG"
+        />
+        <img
+          class="cheeks-option options"
+          data-src="model/cheeks3.PNG"
+          src="model/cheeks3-icon.PNG"
+        />
+        <img
+          class="cheeks-option options"
+          data-src="model/cheeks5.png"
+          src="model/cheeks5-icon.png"
+        />
+      </div>
+      <div id="hair-box" class="option-box hidden">
+        <img
+          class="hair-option options"
+          data-src="model/hair1.PNG"
+          src="model/hair1-icon.png"
+        />
+        <img
+          class="hair-option options"
+          data-src="model/hair2.PNG"
+          src="model/hair2-icon.png"
+        />
+        <img
+          class="hair-option options"
+          data-src="model/hair3.PNG"
+          src="model/hair3-icon.png"
+        />
+        <img
+          class="hair-option options"
+          data-src="model/hair4.PNG"
+          src="model/hair4-icon.png"
+        />
+        <img
+          class="hair-option options"
+          data-src="model/hair5.PNG"
+          src="model/hair5-icon.png"
+        />
+      </div>
+      <div id="model-box">
+        <img id="skinLayer" />
+        <img id="frameLayer" src="model/frame.PNG" />
+      </div>
+      <div id="top-box" class="option-box-right hidden">
+        <img
+          class="top-option options"
+          data-src="clothes/top1.PNG"
+          src="clothes/top1.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top2.PNG"
+          src="clothes/top2.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top3.PNG"
+          src="clothes/top3.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top4.PNG"
+          src="clothes/top4.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top5.PNG"
+          src="clothes/top5.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top6.PNG"
+          src="clothes/top6.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top7.PNG"
+          src="clothes/top7.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top8.PNG"
+          src="clothes/top8.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top9.PNG"
+          src="clothes/top9.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top10.PNG"
+          src="clothes/top10.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top11.PNG"
+          src="clothes/top11.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top12.PNG"
+          src="clothes/top12.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top13.PNG"
+          src="clothes/top13.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top15.PNG"
+          src="clothes/top15.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top16.PNG"
+          src="clothes/top16.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top17.PNG"
+          src="clothes/top17.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top18.PNG"
+          src="clothes/top18.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top19.PNG"
+          src="clothes/top19.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top20.PNG"
+          src="clothes/top20.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top21.PNG"
+          src="clothes/top21.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top22.PNG"
+          src="clothes/top22.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top23.PNG"
+          src="clothes/top23.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top24.PNG"
+          src="clothes/top24.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top25.PNG"
+          src="clothes/top25.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top26.PNG"
+          src="clothes/top26.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top27.PNG"
+          src="clothes/top27.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top28.PNG"
+          src="clothes/top28.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top29.PNG"
+          src="clothes/top29.PNG"
+        />
+        <img
+          class="top-option options"
+          data-src="clothes/top30.PNG"
+          src="clothes/top30.PNG"
+        />
+      </div>
+      <div id="bottom-box" class="option-box-right hidden">
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom1.png"
+          src="clothes/bottom1.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom2.png"
+          src="clothes/bottom2.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom3.png"
+          src="clothes/bottom3.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom4.png"
+          src="clothes/bottom4.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom5.png"
+          src="clothes/bottom5.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom6.png"
+          src="clothes/bottom6.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom7.png"
+          src="clothes/bottom7.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom8.png"
+          src="clothes/bottom8.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom9.png"
+          src="clothes/bottom9.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom10.png"
+          src="clothes/bottom10.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom11.png"
+          src="clothes/bottom11.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom12.png"
+          src="clothes/bottom12.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom13.png"
+          src="clothes/bottom13.png"
+        />
+        <img
+          class="bottom-option options"
+          data-src="clothes/bottom14.png"
+          src="clothes/bottom14.png"
+        />
+      </div>
+      <div id="skirt-box" class="option-box-right hidden">
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt1.png"
+          src="clothes/skirt1.png"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt2.PNG"
+          src="clothes/skirt2.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt3.PNG"
+          src="clothes/skirt3.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt4.PNG"
+          src="clothes/skirt4.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt5.PNG"
+          src="clothes/skirt5.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt6.PNG"
+          src="clothes/skirt6.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt7.PNG"
+          src="clothes/skirt7.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt8.PNG"
+          src="clothes/skirt8.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt9.PNG"
+          src="clothes/skirt9.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt10.PNG"
+          src="clothes/skirt10.PNG"
+        />
+        <img
+          class="skirt-option options"
+          data-src="clothes/skirt11.PNG"
+          src="clothes/skirt11.PNG"
+        />
+      </div>
+      <div id="jacket-box" class="option-box-right hidden">
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket1.PNG"
+          src="clothes/jacket1.PNG"
+        />
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket2.PNG"
+          src="clothes/jacket2.PNG"
+        />
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket3.PNG"
+          src="clothes/jacket3.PNG"
+        />
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket4.PNG"
+          src="clothes/jacket4.PNG"
+        />
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket5.PNG"
+          src="clothes/jacket5.PNG"
+        />
+        <img
+          class="jacket-option options"
+          data-src="clothes/jacket6.PNG"
+          src="clothes/jacket6.PNG"
+        />
+      </div>
+      <div id="socks-box" class="option-box-right hidden">
+        <img
+          class="socks-option options"
+          data-src="clothes/socks1.PNG"
+          src="clothes/socks1-icon.PNG"
+        />
+        <img
+          class="socks-option options"
+          data-src="clothes/socks2.PNG"
+          src="clothes/socks2-icon.PNG"
+        />
+        <img
+          class="socks-option options"
+          data-src="clothes/socks3.PNG"
+          src="clothes/socks3-icon.PNG"
+        />
+        <img
+          class="socks-option options"
+          data-src="clothes/socks4.PNG"
+          src="clothes/socks4-icon.PNG"
+        />
+        <img
+          class="socks-option options"
+          data-src="clothes/socks5.PNG"
+          src="clothes/socks5-icon.png"
+        />
+        <img
+          class="socks-option options"
+          data-src="clothes/socks6.PNG"
+          src="clothes/socks6-icon.png"
+        />
+      </div>
+      <div id="shoes-box" class="option-box-right hidden">
+        <img
+          class="shoes-option options"
+          data-src="clothes/shoes1.PNG"
+          src="clothes/shoes1-icon.PNG"
+        />
+        <img
+          class="shoes-option options"
+          data-src="clothes/shoes2.PNG"
+          src="clothes/shoes2-icon.png"
+        />
+        <img
+          class="shoes-option options"
+          data-src="clothes/shoes3.PNG"
+          src="clothes/shoes3-icon.png"
+        />
+        <img
+          class="shoes-option options"
+          data-src="clothes/shoes4.PNG"
+          src="clothes/shoes4-icon.PNG"
+        />
+        <img
+          class="shoes-option options"
+          data-src="clothes/shoes5.PNG"
+          src="clothes/shoes5-icon.PNG"
+        />
+      </div>
+      <div id="clothes-box">
+        <button id="topBtn" class="items-button">
+          <img src="clothes/top-icon.png" />
+        </button>
+        <button id="bottomBtn" class="items-button">
+          <img src="clothes/bottom-icon.png" />
+        </button>
+        <button id="skirtBtn" class="items-button">
+          <img src="clothes/skirt-icon.png" />
+        </button>
+        <button id="jacketBtn" class="items-button">
+          <img src="clothes/jacket-icon.png" />
+        </button>
+        <button id="socksBtn" class="items-button">
+          <img src="clothes/socks-icon.png" />
+        </button>
+        <button id="shoesBtn" class="items-button">
+          <img src="clothes/shoes-icon.png" />
+        </button>
+      </div>
+    </div>
+    <div class="tabs">
+      <button id="sound-on" class="tabs-button">🔈</button>
+      <button id="resetBtn" class="tabs-button">Reset</button>
+      <button id="download" class="tabs-button">✔️</button>
+    </div>
+    <footer>
+      <p>
+        &copy; Dress-up game <br />
+        Music from
+        <a
+          href="https://studio.youtube.com/channel/UCQqxOElbxGsPutf8bZWXy3w/music"
+          target="_blank"
+          >Youtube Audio Library
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
