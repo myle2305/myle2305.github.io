@@ -1,0 +1,26 @@
+<style>
+    body {
+        margin: 0;
+        overflow: hidden; 
+        cursor: grab; 
+    }
+
+    body:active {
+        cursor: grabbing; 
+    }
+
+    #galaxy-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+
+    #galaxy-background {
+        width: 6000vw;
+        height: 6000vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+    }
+</style>
