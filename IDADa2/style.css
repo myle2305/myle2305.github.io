@@ -69,11 +69,11 @@ body {
 
 @keyframes shine {
   from {
-    transform: scale(1) rotate(45deg);
+    transform: scale(1.5) rotate(45deg);
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
   }
   to {
-    transform: scale(2) rotate(45deg);
+    transform: scale(3) rotate(45deg);
     filter: drop-shadow(0 0 20px rgba(255, 255, 150, 0.9));
   }
 }
