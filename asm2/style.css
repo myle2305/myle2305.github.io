@@ -76,6 +76,12 @@ h2 {
   height: auto;
   border: 1px solid #ccc;
 }
+.link {
+  color: var(--color5);
+}
+.inline-ref {
+  font-size: 0.8rem;
+}
 footer {
   text-align: center;
   padding: 1rem;
