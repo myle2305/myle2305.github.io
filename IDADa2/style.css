@@ -1,148 +1,72 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-image: url("galaxy.PNG");
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  box-sizing: border-box;
 }
 
-.landing-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+body {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background-color: black;
+  color: white;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  cursor: crosshair;
 }
 
-.landing-container {
-  animation: fadeIn 2s ease-in;
-  text-align: center;
-}
-
-.landing-title {
-  font-size: 5em;
-  font-weight: bold;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-  margin: 0px;
-  color: rgb(249, 245, 185);
-  padding-top: 80px;
-  font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-size: 5rem;
-  font-style: normal;
-}
-
-.landing-star-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  background-color: transparent;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+#game-container {
   position: relative;
-  z-index: 10;
-  margin-top: 100px;
+  width: 8000px;
+  height: 100vh;
+  background: radial-gradient(ellipse at center);
+  background-image: url("galaxy.PNG");
 }
 
-.landing-star-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
-}
-
-.star-icon {
-  font-size: 50px;
-  color: rgb(255, 255, 184);
-  position: absolute;
-  transform: rotate(45deg); /* Để ngôi sao trông giống hơn */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-#scroll-handler {
-  width: 6000px;
-  height: 6000px;
-  overflow: scroll;
-  position: absolute;
+#intro-overlay {
+  position: fixed;
   top: 0;
   left: 0;
-}
-
-#galaxy-background {
   width: 100%;
   height: 100%;
-  background-image: url("galaxy.PNG");
-  background-size: cover;
-  background-repeat: repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+  padding: 20px;
 }
 
-.star {
-  position: absolute;
-  width: var(--star-size);
-  height: var(--star-size);
-  background-color: white;
-  transform: rotate(45deg);
-  pointer-events: all;
-  z-index: 2;
-  transition: transform 0.2s, filter 0.2s, background-color 0.2s;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-  animation: sparkle-base 3s infinite ease-in-out;
+#intro-overlay h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffd700;
+  text-shadow: #ffd700;
+}
+
+#intro-overlay p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+#start-btn {
+  padding: 15px 40px;
+  background: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
-.star:hover {
-  transform: scale(2.5) rotate(45deg);
-  filter: drop-shadow(0 0 25px rgba(255, 255, 202, 1));
-  background-color: rgb(255, 255, 220);
-  animation: none;
-}
-
-.star.active {
-  background-color: rgb(255, 255, 150);
-  animation: shine 0.3s ease-in-out;
-}
-
-@keyframes sparkle-base {
-  0%,
-  100% {
-    opacity: 0.7;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-  }
-  80% {
-    opacity: 1;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
-  }
-}
-
-@keyframes shine {
-  from {
-    transform: scale(1) rotate(45deg);
-    transform: scale(1.5) rotate(45deg);
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-  }
-  to {
-    transform: scale(2) rotate(45deg);
-    transform: scale(3) rotate(45deg);
-    filter: drop-shadow(0 0 20px rgba(255, 255, 150, 0.9));
-  }
+#start-btn:hover {
+  background: #ffd700;
+  color: black;
+  box-shadow: 0 0 30px #ffd700;
 }

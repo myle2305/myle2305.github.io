@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound Galaxy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="intro-overlay">
+      <h1>SOUND GALAXY</h1>
+      <p>Explore the 12 zodiac constellations.</p>
+      <p>Click on stars to reveal constellations and create sounds.</p>
+      <button id="start-btn">Explore Galaxy</button>
+    </div>
+    <button class="toggle-btn" id="toggle-help" title="Help">💡</button>
+    <div id="controls">
+      <h3>How to Navigate</h3>
+      <p>Scroll to explore the galaxy</p>
+      <p>Click stars to form constellations</p>
+      <p>Discover all 12 zodiac signs</p>
+    </div>
+    <div id="constellation-info">
+      <h2 id="constellation-name"></h2>
+      <p id="constellation-desc"></p>
+      <p id="cosntellation-dates"></p>
+    </div>
+    <div id="scroll-indicator">
+      <div id="scroll-thumb"></div>
+    </div>
+    <div id="galaxy-container"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
