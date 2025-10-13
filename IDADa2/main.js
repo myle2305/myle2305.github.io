@@ -68,19 +68,6 @@ class SoundGalaxy {
       case "h":
         document.getElementById("toggle-help").click();
         break;
-      case "m":
-        const slider = document.getElementById("volume-slider");
-        const volumeValue = document.getElementById("volume-value");
-        if (slider.value > 0) {
-          slider.dataset.prevVolume = slider.value;
-          slider.value = 0;
-          volumeValue.textContent = "0";
-        } else {
-          slider.value = slider.dataset.prevVolume || 70;
-          volumeValue.textContent = slider.value;
-        }
-        slider.dispatchEvent(new Event("input"));
-        break;
       case "arrowleft":
         window.scrollBy({ left: -200, behavior: "smooth" });
         break;

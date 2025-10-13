@@ -10,7 +10,7 @@ body {
   color: #fff;
   overflow: scroll;
   cursor: crosshair;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 #galaxy-container {
@@ -27,11 +27,22 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  z-index: 10;
 }
 
 .star:hover {
-  transform: scale(1.8);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+  transform: scale(2.2);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+.star::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  cursor: pointer;
 }
 
 .star.active {
@@ -44,9 +55,21 @@ body {
   position: absolute;
   background: #fff;
   border-radius: 50%;
-  width: 2px;
-  height: 2px;
+  width: 4px;
+  height: 4px;
   animation: twinkle 3s infinite;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.background-star::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  cursor: pointer;
 }
 
 .constellation-line {
@@ -56,6 +79,7 @@ body {
   transform-origin: left center;
   pointer-events: none;
   animation: drawLine 0.5s ease-in-out;
+  z-index: 5;
 }
 
 @keyframes pulse {
@@ -179,13 +203,13 @@ body {
   font-family: "Press Start 2P", cursive;
   color: #ffd700;
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
 #controls p {
   font-family: "Press Start 2P", cursive;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 15px;
   line-height: 1.6;
 }
@@ -195,7 +219,7 @@ body {
   padding-top: 15px;
   border-top: 1px solid rgba(255, 215, 0, 0.3);
   color: #ffd700;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .keyboard-hints {
@@ -205,7 +229,7 @@ body {
 }
 
 .keyboard-hints p {
-  font-size: 1rem;
+  font-size: 0.6rem;
   margin-bottom: 8px;
   color: #aaa;
 }
@@ -251,7 +275,7 @@ body {
 
 #constellation-info p {
   font-family: "Press Start 2P", cursive;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.6;
   margin-bottom: 10px;
 }
@@ -272,7 +296,7 @@ body {
   cursor: pointer;
   border-radius: 8px;
   z-index: 100;
-  font-size: 1rem;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
   width: 50px;
   height: 50px;
@@ -303,7 +327,7 @@ body {
   display: block;
   color: #ffd700;
   margin-bottom: 10px;
-  font-size: 0.8rem;
+  font-size: 0.4rem;
 }
 
 #volume-slider {
@@ -365,7 +389,7 @@ body {
 #loading-screen p {
   font-family: "Press Start 2P", cursive;
   color: #ffd700;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
@@ -374,17 +398,17 @@ body {
   }
 
   #intro-overlay h1 {
-    font-size: 2rem;
+    font-size: 1.1rem;
     margin-bottom: 20px;
   }
 
   #intro-overlay p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 15px;
   }
 
   #start-btn {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 12px 25px;
   }
 
@@ -395,11 +419,11 @@ body {
   }
 
   #controls h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   #controls p {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   #constellation-info {
@@ -408,21 +432,21 @@ body {
   }
 
   #constellation-info h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   #constellation-info p {
-    font-size: 1rem;
+    font-size: 0.6rem;
   }
 
   .toggle-btn {
     width: 45px;
     height: 45px;
-    font-size: 1rem;
+    font-size: 0.6rem;
   }
 
   #volume-control label {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
   #scroll-indicator {

@@ -11,9 +11,27 @@ class UIManager {
     const containerWidth = 10000;
     const containerHeight = 6000;
 
+    const ambientNotes = [
+      "C3",
+      "D3",
+      "E3",
+      "F3",
+      "G3",
+      "A3",
+      "B3",
+      "C4",
+      "D4",
+      "E4",
+      "F4",
+      "G4",
+    ];
+
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement("div");
       star.className = "background-star";
+      const bgSize = 3 + Math.random() * 2;
+      star.style.width = bgSize + "px";
+      star.style.height = bgSize + "px";
 
       star.style.left = Math.random() * containerWidth + "px";
       star.style.top = Math.random() * containerHeight + "px";
@@ -21,8 +39,46 @@ class UIManager {
       star.style.animationDelay = Math.random() * 3 + "s";
       star.style.animationDuration = 2 + Math.random() * 4 + "s";
 
+      const randomNote =
+        ambientNotes[Math.floor(Math.random() * ambientNotes.length)];
+      star.dataset.note = randomNote;
+
+      star.style.cursor = "pointer";
+
+      star.addEventListener("click", (e) => {
+        this.handleBackgroundStarClick(star);
+        e.stopPropagation();
+      });
+
+      star.addEventListener("mouseenter", () => {
+        star.style.transform = "scale(2)";
+        star.style.boxShadow = "0 0 8px rgba(255, 255, 255, 1)";
+      });
+
+      star.addEventListener("mouseleave", () => {
+        star.style.transform = "scale(1)";
+        star.style.boxShadow = "none";
+      });
+
       this.container.appendChild(star);
     }
+  }
+
+  handleBackgroundStarClick(star) {
+    const note = star.dataset.note;
+    audioSystem.playNote(note, "16n");
+
+    star.style.animation = "none";
+    star.style.background = "#ffed4e";
+    star.style.boxShadow = "0 0 15px #ffed4e";
+    star.style.transform = "scale(3)";
+
+    setTimeout(() => {
+      star.style.background = "#fff";
+      star.style.boxShadow = "none";
+      star.style.transform = "scale(1)";
+      star.style.animation = "";
+    }, 300);
   }
 
   createConstellationStars() {
@@ -48,7 +104,7 @@ class UIManager {
     const star = document.createElement("div");
     star.className = "star";
 
-    const size = 8 + Math.random() * 6;
+    const size = 12 + Math.random() * 8;
     star.style.width = size + "px";
     star.style.height = size + "px";
 
@@ -67,8 +123,9 @@ class UIManager {
     star.dataset.y = finalY;
     star.dataset.size = size;
 
-    star.addEventListener("click", () => {
+    star.addEventListener("click", (e) => {
       this.handleStarClick(star, constellation, starIndex);
+      e.stopPropagation();
     });
 
     return star;
