@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background: #000;
+  color: #fff;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 100%);
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid #ffd700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffd700;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.links-section {
+  background: rgba(10, 10, 26, 0.9);
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+}
+
+.links-section h2 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.link-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.link-card:hover {
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+.link-card h3 {
+  color: #ffd700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.section {
+  background: rgba(10, 10, 26, 0.9);
+  padding: 40px;
+  margin-bottom: 40px;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+}
+
+.section h2 {
+  color: #ffd700;
+  margin-bottom: 25px;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
+.section h3 {
+  color: #fff8b8;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.section p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+code {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #ffed4e;
+  font-size: 0.65rem;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-left: 3px solid #ffd700;
+  margin: 20px 0;
+  overflow-x: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul,
+ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+strong {
+  color: #ffd700;
+}
+
+.highlight {
+  text-decoration: underline;
+  color: #ffee55;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 25px;
+  }
+
+  .section h2 {
+    font-size: 1rem;
+  }
+
+  .section h3 {
+    font-size: 0.8rem;
+  }
+
+  .section p,
+  li {
+    font-size: 0.65rem;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+}

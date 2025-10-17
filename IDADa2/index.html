@@ -4,14 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sound Galaxy</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -26,9 +24,7 @@
       </p>
       <button id="start-btn">Explore</button>
     </div>
-
     <button class="toggle-btn" id="toggle-help" title="Toggle Help">💡</button>
-
     <div id="controls">
       <button class="close-btn" id="close-help">✕</button>
       <h3>How to Navigate</h3>
@@ -43,29 +39,23 @@
         <p>Arrow Keys ⬅️⬆️⬇️➡️ - Navigate</p>
       </div>
     </div>
-
     <div id="constellation-info">
       <h2 id="constellation-name"></h2>
       <p id="constellation-desc"></p>
       <p id="constellation-dates"></p>
     </div>
-
     <div id="volume-control">
       <label for="volume-slider">🔊 <span id="volume-value">70</span>%</label>
       <input type="range" id="volume-slider" min="0" max="100" value="70" />
     </div>
-
     <div id="scroll-indicator">
       <div id="scroll-thumb"></div>
     </div>
-
     <div id="galaxy-container"></div>
-
     <div id="loading-screen">
       <div class="loading-spinner"></div>
       <p>Loading Galaxy...</p>
     </div>
-
     <script src="constellations.js"></script>
     <script src="tone.js"></script>
     <script src="ui.js"></script>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3 Reflection</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="starfield" id="starfield"></div>
+    <header>
+      <h1>SOUND GALAXY</h1>
+      <p class="subtitle">
+        Design reflection for Interaction Design and Development Course A3
+      </p>
+      <p class="subtitle">My Le - s4028203</p>
+    </header>
+    <div class="links-section">
+      <h2>PROJECT LINKS</h2>
+      <div class="link-grid">
+        <a
+          href="https://myle2305.github.io/IDADa2/"
+          class="link-card"
+          target="_blank"
+        >
+          <h3>Final UI</h3>
+        </a>
+        <a
+          href="https://myle2305.github.io/Prototype-UI/"
+          class="link-card"
+          target="_blank"
+        >
+          <h3>Prototype</h3>
+        </a>
+        <a
+          href="https://github.com/myle2305/myle2305.github.io/tree/main/IDADa2"
+          class="link-card"
+          target="_blank"
+        >
+          <h3>Code Repository</h3>
+        </a>
+        <a
+          href="https://github.com/myle2305/myle2305.github.io/tree/myle2305.github.io-/IDADa2/IDADa2"
+          class="link-card"
+          target="_blank"
+        >
+          <h3>Prototype Code</h3>
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <section class="section">
+        <h2>PROJECT OVERVIEW</h2>
+        <p>
+          My final UI combines the creative prompts: Spatial Control and
+          advanced techniques: Math.random(). The project's goal is to create a
+          galaxy with stars that change with every load and click, allowing
+          users to interact with a spirit of experimentation and exploration.
+        </p>
+        <h2>1. DESIGN VALUES</h2>
+        <h3>Learnability</h3>
+        <p>
+          Sound Galaxy's first design value is <strong>learnability</strong>,
+          ensuring users can understand and interact with the system naturally
+          without complicated instructions.
+        </p>
+        <p>
+          <span class="highlight">User Guidance:</span> The first screen only
+          displays 4 core information: "12 Zodiac Constellations", "Click on the
+          Stars", "Make Sounds", "Scroll to Explore", helping users understand
+          the content inside and how the website works. The detailed
+          instructions panel is hidden by default, only showing when users need
+          help by clicking the button or pressing the H key. In addition, the
+          arrows on the keyboard can be used to navigate the space, allowing
+          desktop users to easily access interactions without a touchpad.
+        </p>
+        <p>
+          <span class="highlight">Intuitive Affordances:</span> Each star has a
+          pointer and can hover, signaling that it is interactive. The hover
+          effect zooms in 2.2 times with a bright light, providing strong
+          feedback before clicking. The constellation stars are larger (12-20px)
+          than the background stars (3-5px) to help users easily recognize and
+          interact with the desired element, and also as a hint for users to
+          find all 12 constellations.
+        </p>
+        <h3>Playfulness</h3>
+        <p>
+          The second design value is <strong>playfulness</strong>. I want users
+          to feel free to experiment and explore without the pressure of
+          completing a goal. Each interaction should be a small surprise, pique
+          curiosity and stimulate the user to experience.
+        </p>
+        <p>
+          <span class="highlight">Non-linear Exploration:</span> The
+          10000x6000px galaxy creates a feeling of endless expansion. 12
+          constellations are randomly distributed and spread throughout the
+          background allowing users to freely explore. Each play can have a
+          completely different journey.
+        </p>
+        <p>
+          <span class="highlight">Generative Music System:</span> The background
+          stars are randomly assigned notes from the C3-G4 scale. Users can
+          click on any star to freely create notes. There is no wrong note, each
+          play session creates a unique sound because the notes are randomly
+          arranged.
+        </p>
+        <div class="code-block">
+          const ambientNotes = ["C3", "D3", "E3", "F3", "G3", "A3", <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"B3",
+          "C4", "D4", "E4", "F4", "G4"];<br />
+          const randomNote = ambientNotes[<br />
+          &nbsp;&nbsp;Math.floor(Math.random() * ambientNotes.length)<br />
+          ];
+        </div>
+      </section>
+      <section class="section">
+        <h2>2. INTERACTION DESIGN RATIONALE</h2>
+        <h3>Feedback Design</h3>
+        <p>
+          The project's feedback following the principle of "Show, Don't Tell",
+          every interaction must have clear responses rather than relying on
+          text instructions.
+        </p>
+        <p>
+          <strong>Visual Feedback:</strong> Background stars flash yellow (scale
+          3x) for 300ms when clicked. Constellation stars turn gold permanently
+          and pulse infinitely when activated, providing spatial memory and
+          showing progress visually.
+        </p>
+        <p>
+          <strong>Audio Feedback:</strong> Background stars play a short sound,
+          constellation stars play a medium sound, and completing a
+          constellation plays a small symphonies to indicate that the user has
+          found a constellation.
+        </p>
+        <h3>Information Design</h3>
+        <p>
+          The help toggle, volume control, and scroll indicator are the only
+          three UI elements that are always visible. By default, the
+          constellation information and help panel are hidden and only show up
+          once request. To match the galaxy theme, all stars used yellow on a
+          dark background.
+        </p>
+        <p>
+          <strong>Visual Hierarchy:</strong> Z-index layers ensure that
+          constellation stars (z-index: 10) are always clickable, lines
+          (z-index: 5) are visible but don't block the stars, and background
+          stars (z-index: 1) fill the space without being cluttered.
+        </p>
+      </section>
+      <section class="section">
+        <h2>3. SIGNIFICANT CHANGES FROM PROTOTYPE & PRODUCTION TIMELINE</h2>
+        <h3>Math.random() Expansion</h3>
+        <p>Evolved from basic positioning to randomization across 6 aspects:</p>
+        <ul>
+          <li>Star size: <code>3 + Math.random() * 2</code></li>
+          <li>Position: <code>Math.random() * 10000</code></li>
+          <li>Animation delay: <code>Math.random() * 3</code> seconds</li>
+          <li>
+            Animation duration: <code>2 + Math.random() * 4</code> seconds
+          </li>
+          <li>
+            Notes:
+            <code>Math.floor(Math.random() * notes.length)</code>
+          </li>
+          <li>
+            Position offset: <code>(Math.random() - 0.5) * 20</code> pixels
+          </li>
+        </ul>
+        <h3>Audio System</h3>
+        <p>
+          I refined the feedback sounds a bit, adding some effects to them to
+          make them sound more airy, not as muddy as the prototype version.
+        </p>
+        <h3>Constellations</h3>
+        <p>
+          I also implemented the creation of connected constellations and
+          symphonies feedback after the user clicks all the stars in that
+          constellation.
+        </p>
+        <h3>Comparision with prototype</h3>
+        <p>
+          Compared to the previous prototype, my final UI has made significant
+          progress. It was mainly a matter of building on the old one and fixing
+          the shortcomings that I had received feedback from peer testing. In
+          the UI prototype, the scrolling was broken and the galaxy looked too
+          crowded and cluttered, the star area was too small to interact with.
+          In addition, simplifying the website by cutting out the guide for
+          users to freely explore seemed unfeasible, leaving users confused
+          about how the website interacted. I thought it was a good solution
+          because it created a spacious and unbroken galaxy of UI elements, but
+          feedback from actual users proved my thinking wrong. So, I tried to
+          fix the confusing interface by adding a guide and increasing the size
+          of both the stars and their selections, while reducing the number of
+          stars to avoid feeling suffocated. And this change is the right one,
+          the interface looks more natural and the interaction is also easier.
+          In addition, I had the idea that users would click on the stars until
+          they found a star belonging to a certain constellation, then they
+          would automatically connect together and play a series of sounds. But
+          perhaps this is impossible, because with a large background size and a
+          large number of stars spread across the background, it would be
+          difficult and frustrating if users kept clicking without knowing when
+          they hit a certain constellation. Therefore, I designed the zodiac
+          stars to be significantly larger than the stars in the background,
+          ensuring that users can easily recognize them. When users click enough
+          stars belonging to that constellation, they will play a small symphony
+          to respond to the user. The zodiac constellations are also simplified
+          by me, in fact, there are zodiac constellations that are a collection
+          of many stars and the shapes are quite complex, which is not suitable
+          for simple interactive UI design, moreover, it will create a chaotic
+          harmony and cause fatigue for users if they have to click too many
+          times. Therefore, I think it would be better to create constellations
+          that represent the zodiac signs, which can both satisfy the visual and
+          auditory needs and avoid causing discomfort to the user experience.
+        </p>
+        <h3>Spent more time than expected:</h3>
+        <ul>
+          <li>
+            The line-drawing algorithm proved that simple math doesn’t guarantee
+            easy implementation. To be honest, it wasn’t easy to implement, so I
+            relied heavily on chatGPT. The random star size meant the center
+            wasn’t in the top left corner, requiring centerX and centerY values
+            to be calculated and stored. A CSS transform origin issue caused all
+            the corners to be 90 degrees off, which took a fair amount of
+            debugging. After fixing the math, it had to be checked in the
+            browser to make sure it matched up visually. This taught me that
+            mathematical correctness doesn’t equal visual correctness, and
+            cross-browser testing should be done early on.
+          </li>
+          <li>
+            Refining the sound system required finding the right sound for the
+            concept through experimentation. I eventually found the sound that
+            worked best, after experimenting with the attack times, release
+            times of the notes. It is important to test the sound in context as
+            sounds that work on their own often do not work well when layered
+            with other sounds.
+          </li>
+          <li>
+            The scrolling system demonstrated the power of leveraging the
+            browser's built-in features. Instead of implementing custom camera
+            motion with position tracking, momentum physics, and easy
+            calculations, I simply set the container size to 10000x6000px, added
+            overflow: scroll, and used window.scrollBy() with behavior: 'smooth'
+            for keyboard controls. The browser automatically handled smooth
+            scrolling physics, mouse wheel support, touch gestures, momentum on
+            Mac, scroll position memory, and performance optimizations.
+          </li>
+        </ul>
+        <h3>Challenge:</h3>
+        <p>
+          I created a branch for the prototype and continued editing on the main
+          branch for the final UI, but there was a problem that I could not open
+          the prototype on the browser because it had the same name as the UI
+          that I was continuing to work on. And the prototype branch to netlify
+          failed because in the prototype I did not have the index.html file as
+          require, resulting in a "files not found" screen. And I chose the
+          solution of copying the code of the prototype branch to a separate new
+          folder to commit to github. This carelessness led to an inefficient
+          and time-consuming work process. This is a shortcoming that I need to
+          recognize and learn from in future projects.
+        </p>
+      </section>
+      <section class="section">
+        <h2>4. DESIGN ASPECT I'M MOST PROUD OF</h2>
+        <h3>The Math.random() Symphonies System</h3>
+        <p>
+          I'm most proud of how Math.random() used in a simple but powerful way.
+          Instead of just using randomness as decoration, it can be functional
+          and be the main component for the user to interact with.
+        </p>
+        <div class="code-block">
+          1. Size: 3 + Math.random() * 2<br />
+          2. Position X: Math.random() * 10000<br />
+          3. Position Y: Math.random() * 6000<br />
+          4. Animation Delay: Math.random() * 3<br />
+          5. Animation Duration: 2 + Math.random() * 4<br />
+          6. Note: notes[Math.floor(Math.random() * 12)]
+        </div>
+        <p>
+          Each random element can compounds with others. A star isn't just
+          randomly positioned, it's also randomly sized, randomly timed, and
+          randomly voiced:
+        </p>
+        <ul>
+          <li>
+            5 size variations × 800 positions × 3 timing ranges × 12 notes =
+            millions of unique combinations
+          </li>
+          <li>
+            Yet it all feels coherent because ranges are carefully bounded
+          </li>
+          <li>The galaxy feels natural despite being fully algorithmic</li>
+        </ul>
+        <p>
+          The constellation offset is very important because it can
+          unintentionally cause unnatural and unbalanced designs:
+        </p>
+        <div class="code-block">
+          const offsetX = (Math.random() - 0.5) * 20;<br />
+          const offsetY = (Math.random() - 0.5) * 20;
+        </div>
+        <p>
+          The natural placement of the stars goes a long way in making the
+          galaxy look realistic. Additionally, each time the site loads, the
+          stars and constellations are randomly placed, which adds to the user
+          experience every time they come back to interact with the site.
+        </p>
+      </section>
+      <section class="section">
+        <h2>5. MOST CHALLENGING ASPECT</h2>
+        <h3>Balancing Playfulness with Clarity</h3>
+        <p>
+          The biggest challenge in the design process was how to balance the
+          need to promote playfulness while still ensuring learning, as
+          playfulness requires surprise and discovery, and learning requires a
+          clear, easy-to-grasp interface. This required careful compromises
+          across the entire application. For example, the background stars were
+          made interactive, making sounds and lights when clicked to encourage
+          exploration. Their distinct small size and non-fixed feedback were
+          used to differentiate them from the main constellation mechanic.
+          Additionally, a good balance was found for the tutorial: instead of
+          relying on pure exploration that could be confusing or a long,
+          annoying tutorial, the most sensible solution was a cover page with
+          minimal, three-sentence context, which provided a glimpse into how the
+          site worked while still allowing for exploration. Through this, I
+          learned an important design lesson that authentic exploration requires
+          guiding signal, not confusing ambiguity, and that music-based system
+          needs precision, not random noise, to be recognized as intentional.
+        </p>
+        <h3>What I Learned</h3>
+        <p>
+          Balancing opposing values ​​requires extensive user testing. Because
+          my initial thoughts are often different from the user's thoughts on
+          the first experience:
+        </p>
+        <ul>
+          <li>
+            In the prototype version, I thought that making the constellations
+            hidden would be interesting and stimulating for users to explore,
+            but in reality it was confusing and frustrating for users, because
+            they had no idea how the site worked.
+          </li>
+          <li>
+            I thought that not having a tutorial would bring a nicer interface,
+            have more space to interact, but it made difficulty for first-time
+            users to experience the website, no solution to guide them if they
+            got lost, leading to frustration and not wanting to interact
+            anymore.
+          </li>
+        </ul>
+        <p>
+          Ultimately, the balance comes from iterative testing and a willingness
+          to cut unnecessariness. Some initial ideas had to be got rid of
+          because they prioritized my perspective over the user experience. I
+          also learned that playfulness works best when built on a foundation of
+          clarity. Users need to understand how the site works before they can
+          comfortably explore it. The “rules” must be clearly stated before the
+          “game” can begin.
+        </p>
+      </section>
+      <section class="section">
+        <h2>CONCLUSION</h2>
+        <p>
+          Sound Galaxy is my exploration project on spatial interaction systems
+          and audio-visual synthesis. Through this project, I learned that
+          random does not mean arbitrary, it even requires carefully considered
+          limits, how to be random but not chaotic. In addition, user testing is
+          very important in UI design, because real users can point out the
+          shortcomings of the designer. And not every technique should be
+          applied, because the most important thing is to create an experience,
+          not just an interface. A beautiful interface but does not meet the
+          criteria of usability and makes users uncomfortable, that product will
+          fail.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
