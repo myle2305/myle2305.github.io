@@ -379,7 +379,7 @@ for (let i = 0; i < allParts.length; i++) {
 }
 
 function reorder() {
-  const order = [0, 5, 6, 7, 9, 8, 1, 2, 3, 4, 10];
+  const order = [0, 5, 6, 7, 8, 9, 1, 2, 3, 4, 10];
 
   for (let i = 0; i < order.length; i++) {
     const idx = order[i];
