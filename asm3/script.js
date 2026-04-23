@@ -379,14 +379,15 @@ for (let i = 0; i < allParts.length; i++) {
 }
 
 function reorder() {
-  for (let i = 0; i < allParts.length; i++) {
-    if (allParts[i]) {
-      allParts[i].moveToTop();
-      if (i === 0) {
-        frame.moveToTop();
-      }
+  const order = [0, 7, 8, 9, 5, 6, 1, 2, 3, 4, 10];
+
+  for (let i = 0; i < order.length; i++) {
+    const idx = order[i];
+    if (allParts[idx]) {
+      allParts[idx].moveToTop();
     }
   }
+  frame.moveToTop();
 }
 
 document.getElementById("download").addEventListener("click", () => {
