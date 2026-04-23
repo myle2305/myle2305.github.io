@@ -249,7 +249,7 @@ function addBaseToLayer() {
   });
   layer.add(allParts[0]);
 
-  frame = new Konva.Image({
+  let frame = new Konva.Image({
     image: frameImage,
     x: x,
     y: y,
