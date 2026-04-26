@@ -249,7 +249,7 @@ function addBaseToLayer() {
   });
   layer.add(allParts[0]);
 
-  frame = new Konva.Image({
+  let frame = new Konva.Image({
     image: frameImage,
     x: x,
     y: y,
@@ -379,14 +379,15 @@ for (let i = 0; i < allParts.length; i++) {
 }
 
 function reorder() {
-  for (let i = 0; i < allParts.length; i++) {
-    if (allParts[i]) {
-      allParts[i].moveToTop();
-      if (i === 0) {
-        frame.moveToTop();
-      }
+  const order = [0, 5, 6, 7, 8, 9, 1, 2, 3, 4, 10];
+
+  for (let i = 0; i < order.length; i++) {
+    const idx = order[i];
+    if (allParts[idx]) {
+      allParts[idx].moveToTop();
     }
   }
+  frame.moveToTop();
 }
 
 document.getElementById("download").addEventListener("click", () => {
@@ -405,8 +406,3 @@ document.getElementById("download").addEventListener("click", () => {
   document.body.removeChild(link);
 }); // background music
 // Create Tone.Player and loop it
-export const bgMusic = new Tone.Player({
-  url: "backgroundMusic.mp3", // replace with your file
-  loop: true,
-  autostart: false,
-}).toDestination();
